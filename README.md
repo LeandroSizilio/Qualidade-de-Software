@@ -1,4 +1,4 @@
-# DAMA - Defesa e Apoio às Mulheres Agredidas
+#Melhoria da Qualidade de Software dos arquivos Frontend do projeto DAMA - Defesa e Apoio às Mulheres Agredidas
 
 <img src="https://imgur.com/fktwWmk.png" width="600" height="100%" />
 

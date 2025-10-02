@@ -1,0 +1,34 @@
+name: Angular CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Configura Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Instala dependências na pasta do Angular
+      - name: Install dependencies
+        run: |
+          cd Qualidade-de-Software/frontend/dama
+          npm install
+
+      # Build para garantir que compila
+      - name: Build Angular app
+        run: |
+          cd Qualidade-de-Software/frontend/dama
+          npm run build -- --configuration production

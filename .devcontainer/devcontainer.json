@@ -11,7 +11,7 @@
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "postCreateCommand": "npm install -g @angular/cli@18.2.11 && pip install -r backend/requirements.txt",
+  "postCreateCommand": "npm install -g @angular/cli@18.2.11 && cd Qualidade-de-Software/frontend/dama && npm install && cd ../../backend/dama && pip install -r requirements.txt || true",
   "customizations": {
     "vscode": {
       "extensions": [

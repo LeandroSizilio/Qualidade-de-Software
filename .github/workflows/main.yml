@@ -24,7 +24,7 @@ jobs:
       # Instala dependências na pasta do Angular
       - name: Install dependencies
         run: |
-          cd Qualidade-de-Software/frontend/dama
+          cd frontend/dama
           npm install
 
       # Build para garantir que compila

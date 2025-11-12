@@ -26,6 +26,12 @@ jobs:
         run: |
           cd frontend/dama
           npm install
+          
+      # Executa npm audit para verificar vulnerabilidades
+      - name: Run npm audit
+        run: |
+          cd frontend/dama
+          npm audit --audit-level=high
 
       # Build para garantir que compila
       - name: Build Angular app

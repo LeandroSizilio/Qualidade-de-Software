@@ -1,0 +1,61 @@
+name: OWASP Dependency-Check (Frontend + npm audit)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (for npm audit)
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install frontend dependencies
+        working-directory: frontend/dama
+        run: npm ci
+
+      - name: Run npm audit (supplemental)
+        working-directory: frontend/dama
+        run: |
+          # salva o resultado em JSON para análise posterior
+          npm audit --json > audit-report.json || true
+
+      - name: Upload npm audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: frontend/dama/audit-report.json
+
+      - name: Set up Java (Dependency-Check needs Java)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+
+      - name: Run OWASP Dependency-Check
+        uses: jeremylong/DependencyCheck/dependency-check-action@v2
+        with:
+          format: 'ALL'                    # HTML, XML, JSON, ALL
+          scanpath: 'frontend/dama'        # escaneia somente o frontend
+          project: 'qualidade-software-frontend'
+          failBuildOnCVSS: '7'            # falha se CVSS >= 7.0
+          suppressionFile: 'frontend/dama/dependency-check-suppressions.xml' # opcional, crie se quiser suprimir false positives
+
+      - name: Upload Dependency-Check reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-check-reports
+          path: |
+            dependency-check-report.html
+            dependency-check-report.xml
+            dependency-check-report.json

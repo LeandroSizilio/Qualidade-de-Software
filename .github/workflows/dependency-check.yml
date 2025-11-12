@@ -43,7 +43,7 @@ jobs:
           java-version: '11'
 
       - name: Run OWASP Dependency-Check
-        uses: dependency-check/DependencyCheck-GitHub-Action@v6
+        uses: dependency-check/DependencyCheck
 
         with:
           format: 'ALL'                    # HTML, XML, JSON, ALL

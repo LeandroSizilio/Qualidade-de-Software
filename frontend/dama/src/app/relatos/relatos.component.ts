@@ -9,7 +9,6 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser"
 import { CardModule } from "primeng/card"
 import { ButtonModule } from "primeng/button"
 import { DatePickerModule } from 'primeng/datepicker';
-import { DatePicker } from 'primeng/datepicker';
 
 @Component({
     selector: "app-relatos",
@@ -22,7 +21,7 @@ import { DatePicker } from 'primeng/datepicker';
     CardModule,
     ButtonModule,
     DatePickerModule,
-    DatePicker
+    
 ],
     templateUrl: "./relatos.component.html",
     styleUrls: ["./relatos.component.css"]

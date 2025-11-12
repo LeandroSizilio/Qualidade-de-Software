@@ -10,24 +10,38 @@ on:
 jobs:
   dependency-check:
     runs-on: ubuntu-latest
+
     steps:
+      # -------------------------------
+      # 1. Clona o repositório
+      # -------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (for npm audit)
+      # -------------------------------
+      # 2. Configura Node.js + cache correto
+      # -------------------------------
+      - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: frontend/dama/package-lock.json
 
+      # -------------------------------
+      # 3. Instala dependências do Angular
+      # -------------------------------
       - name: Install frontend dependencies
         working-directory: frontend/dama
         run: npm ci
 
-      - name: Run npm audit (supplemental)
+      # -------------------------------
+      # 4. Executa npm audit
+      # -------------------------------
+      - name: Run npm audit
         working-directory: frontend/dama
         run: |
-          # salva o resultado em JSON para análise posterior
+          # Gera relatório JSON; o "|| true" evita que o job pare caso encontre vulnerabilidades
           npm audit --json > audit-report.json || true
 
       - name: Upload npm audit report
@@ -36,26 +50,22 @@ jobs:
           name: npm-audit-report
           path: frontend/dama/audit-report.json
 
+      # -------------------------------
+      # 5. Configura Java (necessário para OWASP Dependency-Check)
+      # -------------------------------
       - name: Set up Java (Dependency-Check needs Java)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '11'
 
+      # -------------------------------
+      # 6. Executa OWASP Dependency-Check
+      # -------------------------------
       - name: Run OWASP Dependency-Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          format: 'ALL'                    # HTML, XML, JSON, ALL
-          scanpath: 'frontend/dama'        # escaneia somente o frontend
-          project: 'qualidade-software-frontend'
-          failBuildOnCVSS: '7'            # falha se CVSS >= 7.0
-          suppressionFile: 'frontend/dama/dependency-check-suppressions.xml' # opcional, crie se quiser suprimir false positives
-
-      - name: Upload Dependency-Check reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: dependency-check-reports
-          path: |
-            dependency-check-report.html
-            dependency-check-report.xml
-            dependency-check-report.json
+          format: 'ALL'                            # Gera HTML, JSON e XML
+          scanpath: 'frontend/dama'                # Pasta do Angular
+          project: 'qualidade-software-frontend'   # Nome do projeto
+          failBui

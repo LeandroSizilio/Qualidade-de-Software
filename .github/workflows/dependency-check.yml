@@ -43,8 +43,7 @@ jobs:
           java-version: '11'
 
       - name: Run OWASP Dependency-Check
-        uses: dependency-check/DependencyCheck
-
+        uses: dependency-check/Dependency-Check_Action@main
         with:
           format: 'ALL'                    # HTML, XML, JSON, ALL
           scanpath: 'frontend/dama'        # escaneia somente o frontend

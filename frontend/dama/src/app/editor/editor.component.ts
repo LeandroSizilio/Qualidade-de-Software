@@ -3,11 +3,11 @@ import { FormsModule } from "@angular/forms";
 import { EditorModule } from "primeng/editor";
 
 @Component({
-  selector: "app-editor",
-  templateUrl: "./editor.component.html",
-  styleUrls: ["./editor.component.css"],
+    selector: "app-editor",
   standalone: true,
-  imports: [FormsModule, EditorModule],
+    templateUrl: "./editor.component.html",
+    styleUrls: ["./editor.component.css"],
+    imports: [FormsModule, EditorModule]
 })
 export class EditorComponent implements OnInit {
   @Input() text = "";

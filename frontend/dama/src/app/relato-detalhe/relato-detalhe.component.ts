@@ -6,12 +6,12 @@ import { CommonModule } from "@angular/common"
 import { HeaderComponent } from "../components/header/header.component"
 
 @Component({
-  selector: "app-relato-detalhe",
+    selector: "app-relato-detalhe",
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
-  templateUrl: "./relato-detalhe.component.html",
-  styleUrls: ["./relato-detalhe.component.css"],
-  styles: [],
+    imports: [CommonModule, HeaderComponent],
+    templateUrl: "./relato-detalhe.component.html",
+    styleUrls: ["./relato-detalhe.component.css"],
+    styles: []
 })
 export class RelatoDetalheComponent implements OnInit {
   relato: Relato | null = null

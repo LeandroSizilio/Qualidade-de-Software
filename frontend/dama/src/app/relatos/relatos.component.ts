@@ -1,5 +1,6 @@
 import { FormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
+
 import { TruncatePipe } from "../truncate.pipe"
 import { Component, type OnInit } from "@angular/core"
 import { RelatosService, Relato } from "../services/relatos.service"
@@ -9,25 +10,24 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser"
 import { CardModule } from "primeng/card"
 import { ButtonModule } from "primeng/button"
 import { DatePickerModule } from 'primeng/datepicker';
-import { DatePicker } from 'primeng/datepicker';
 
 @Component({
-  selector: "app-relatos",
+    selector: "app-relatos",
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    HeaderComponent,
-    TruncatePipe,
-    RouterModule,
-    RouterLink,
-    CardModule,
-    ButtonModule,
-    DatePickerModule,
-    DatePicker,
-  ],
-  templateUrl: "./relatos.component.html",
-  styleUrls: ["./relatos.component.css"],
+  CommonModule,
+  FormsModule,
+  HeaderComponent,
+  TruncatePipe,
+  RouterModule,
+  RouterLink,
+  CardModule,
+  ButtonModule,
+  DatePickerModule,
+    
+],
+    templateUrl: "./relatos.component.html",
+    styleUrls: ["./relatos.component.css"]
 })
 export class RelatosComponent implements OnInit {
   mensagem = "";

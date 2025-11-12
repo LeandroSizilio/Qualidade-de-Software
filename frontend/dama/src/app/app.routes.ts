@@ -1,12 +1,11 @@
 import { Routes } from '@angular/router';
-import { RelatoComponent } from './relato/relato.component';
 import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
       path: '', pathMatch: 'full', redirectTo: 'index'
     },
-    { path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] },   // Tela protegida
+  { path: 'relato', loadComponent: () => import('./relato/relato.component').then(m => m.RelatoComponent), canActivate: [AuthGuard] },   // Tela protegida
     {
       path: 'redeapoio',
       loadComponent: () => import('./redeapoio/redeapoio.component').then(m => m.RedeapoioComponent)
@@ -35,9 +34,7 @@ export const routes: Routes = [
       path: 'relato/:id',
       loadComponent: () => import('./relato-detalhe/relato-detalhe.component').then(i => i.RelatoDetalheComponent)
     },
-    { 
-      path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] 
-    },
+    
     { path: '**', redirectTo: 'index'}
   ];
   

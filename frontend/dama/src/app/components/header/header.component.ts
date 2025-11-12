@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { IndexComponent } from "../../index/index.component";
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button'; 
 
 
 @Component({
-  selector: 'app-header',
+    selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, IndexComponent, CommonModule, ButtonModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  imports: [CommonModule, RouterLink],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   constructor(public authService: AuthService) {} 

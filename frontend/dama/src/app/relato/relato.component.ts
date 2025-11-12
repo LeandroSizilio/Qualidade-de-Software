@@ -1,6 +1,5 @@
 import { FormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
-import { RouterLink, RouterOutlet } from "@angular/router"
 import { Component, OnInit } from "@angular/core"
 import { RelatoService, Relato } from "../services/relato.service"
 import { HeaderComponent } from "../components/header/header.component"
@@ -8,11 +7,11 @@ import { Router } from "@angular/router"
 import { EditorComponent } from "../editor/editor.component"
 
 @Component({
-  selector: "app-relato",
+    selector: "app-relato",
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet, EditorComponent],
-  templateUrl: "./relato.component.html",
-  styleUrls: ["./relato.component.css"],
+  imports: [CommonModule, FormsModule, HeaderComponent, EditorComponent],
+    templateUrl: "./relato.component.html",
+    styleUrls: ["./relato.component.css"]
 })
 export class RelatoComponent implements OnInit {
   relato: Relato = {

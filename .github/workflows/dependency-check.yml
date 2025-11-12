@@ -1,0 +1,54 @@
+name: OWASP Dependency-Check (Frontend + npm audit) - Action
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (cache configured)
+        uses: actions/setup-node@v6
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: frontend/dama/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: frontend/dama
+        run: npm ci
+
+      - name: Run npm audit (supplemental)
+        working-directory: frontend/dama
+        run: |
+          npm audit --json > audit-report.json || true
+
+      - name: Upload npm audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report
+          path: frontend/dama/audit-report.json
+
+      - name: Run OWASP Dependency-Check (action)
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'qualidade-software-frontend'
+          path: 'frontend/dama'
+          format: 'ALL'                                # HTML, XML, JSON
+          out: 'frontend/dama/reports'                 # onde os relatórios serão gerados
+          # args: passe flags extras diretamente para o CLI do dependency-check
+          args: '--failOnCVSS 7 '
+
+      - name: Upload Dependency-Check reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-check-reports
+          path: frontend/dama/reports

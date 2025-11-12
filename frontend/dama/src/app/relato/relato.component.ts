@@ -8,11 +8,10 @@ import { Router } from "@angular/router"
 import { EditorComponent } from "../editor/editor.component"
 
 @Component({
-  selector: "app-relato",
-  standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet, EditorComponent],
-  templateUrl: "./relato.component.html",
-  styleUrls: ["./relato.component.css"],
+    selector: "app-relato",
+    imports: [CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet, EditorComponent],
+    templateUrl: "./relato.component.html",
+    styleUrls: ["./relato.component.css"]
 })
 export class RelatoComponent implements OnInit {
   relato: Relato = {

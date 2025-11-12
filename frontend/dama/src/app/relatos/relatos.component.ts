@@ -12,22 +12,21 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { DatePicker } from 'primeng/datepicker';
 
 @Component({
-  selector: "app-relatos",
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    HeaderComponent,
-    TruncatePipe,
-    RouterModule,
-    RouterLink,
-    CardModule,
-    ButtonModule,
-    DatePickerModule,
-    DatePicker,
-  ],
-  templateUrl: "./relatos.component.html",
-  styleUrls: ["./relatos.component.css"],
+    selector: "app-relatos",
+    imports: [
+        CommonModule,
+        FormsModule,
+        HeaderComponent,
+        TruncatePipe,
+        RouterModule,
+        RouterLink,
+        CardModule,
+        ButtonModule,
+        DatePickerModule,
+        DatePicker,
+    ],
+    templateUrl: "./relatos.component.html",
+    styleUrls: ["./relatos.component.css"]
 })
 export class RelatosComponent implements OnInit {
   mensagem = "";

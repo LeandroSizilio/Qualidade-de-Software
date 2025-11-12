@@ -9,11 +9,10 @@ import { HeaderComponent } from "../components/header/header.component"
   providedIn: "root",
 })
 @Component({
-  selector: "app-cadastro",
-  standalone: true,
-  imports: [FormsModule, HeaderComponent, CommonModule],
-  templateUrl: "./cadastro.component.html",
-  styleUrls: ["./cadastro.component.css"],
+    selector: "app-cadastro",
+    imports: [FormsModule, HeaderComponent, CommonModule],
+    templateUrl: "./cadastro.component.html",
+    styleUrls: ["./cadastro.component.css"]
 })
 export class CadastroComponent {
   tipoCadastro: "profissional" | "ong" = "profissional"

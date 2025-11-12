@@ -7,11 +7,10 @@ import { ButtonModule } from 'primeng/button';
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [RouterLink, RouterOutlet, IndexComponent, CommonModule, ButtonModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+    imports: [RouterLink, RouterOutlet, IndexComponent, CommonModule, ButtonModule],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   constructor(public authService: AuthService) {} 

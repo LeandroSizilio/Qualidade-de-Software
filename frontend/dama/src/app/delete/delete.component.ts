@@ -3,11 +3,10 @@ import { ProfissionalService, Profissional } from '../services/cadastro.service'
 
 
 @Component({
-  selector: 'app-delete',
-  standalone: true,
-  imports: [],
-  templateUrl: './delete.component.html',
-  styleUrl: './delete.component.css'
+    selector: 'app-delete',
+    imports: [],
+    templateUrl: './delete.component.html',
+    styleUrl: './delete.component.css'
 })
 export class DeleteComponent {
   profissional: Profissional = {

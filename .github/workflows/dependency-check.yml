@@ -1,4 +1,4 @@
-name: OWASP Dependency-Check (Frontend + npm audit)
+name: OWASP Dependency-Check (Frontend + npm audit) - Action
 
 on:
   push:
@@ -12,36 +12,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # -------------------------------
-      # 1. Clona o repositório
-      # -------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # -------------------------------
-      # 2. Configura Node.js + cache correto
-      # -------------------------------
-      - name: Setup Node.js
+      - name: Setup Node.js (cache configured)
         uses: actions/setup-node@v6
         with:
           node-version: 18
           cache: 'npm'
           cache-dependency-path: frontend/dama/package-lock.json
 
-      # -------------------------------
-      # 3. Instala dependências do Angular
-      # -------------------------------
       - name: Install frontend dependencies
         working-directory: frontend/dama
         run: npm ci
 
-      # -------------------------------
-      # 4. Executa npm audit
-      # -------------------------------
-      - name: Run npm audit
+      - name: Run npm audit (supplemental)
         working-directory: frontend/dama
         run: |
-          # Gera relatório JSON; o "|| true" evita que o job pare caso encontre vulnerabilidades
           npm audit --json > audit-report.json || true
 
       - name: Upload npm audit report
@@ -50,35 +37,18 @@ jobs:
           name: npm-audit-report
           path: frontend/dama/audit-report.json
 
-      # -------------------------------
-      # 5. Configura Java (necessário para OWASP Dependency-Check)
-      # -------------------------------
-      - name: Set up Java (Dependency-Check needs Java)
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '11'
-
-      # -------------------------------
-      # 6. Executa OWASP Dependency-Check
-      # -------------------------------
-      - name: Run OWASP Dependency-Check
+      - name: Run OWASP Dependency-Check (action)
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          format: 'ALL'                            # Gera HTML, JSON e XML
-          scanpath: 'frontend/dama'                # Pasta do Angular
-          project: 'qualidade-software-frontend'   # Nome do projeto
-          failBuildOnCVSS: '7'                    # Falha se CVSS >= 7.0 (High ou Critical)
-          suppressionFile: 'frontend/dama/dependency-check-suppressions.xml' # opcional (ver abaixo)
+          project: 'qualidade-software-frontend'
+          path: 'frontend/dama'
+          format: 'ALL'                                # HTML, XML, JSON
+          out: 'frontend/dama/reports'                 # onde os relatórios serão gerados
+          # args: passe flags extras diretamente para o CLI do dependency-check
+          args: '--failOnCVSS 7 --suppression /github/workspace/frontend/dama/dependency-check-suppressions.xml'
 
-      # -------------------------------
-      # 7. Salva relatórios OWASP como artifacts
-      # -------------------------------
       - name: Upload Dependency-Check reports
         uses: actions/upload-artifact@v4
         with:
           name: dependency-check-reports
-          path: |
-            dependency-check-report.html
-            dependency-check-report.xml
-            dependency-check-report.json
+          path: frontend/dama/reports

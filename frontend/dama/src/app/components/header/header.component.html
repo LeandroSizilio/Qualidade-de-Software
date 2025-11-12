@@ -11,11 +11,11 @@
       <li><a routerLink="/redeapoio">Conheça seus direitos</a></li>
     </ul>
   </nav>
-  @if (!authService.isLoggedIn()) {
-    <button id="btn-cadastro" class="button-header"  routerLink="/cadastro">Cadastre-se</button>
-  }
+  <ng-container *ngIf="!authService.isLoggedIn()">
+    <button id="btn-cadastro" class="button-header" routerLink="/cadastro">Cadastre-se</button>
+  </ng-container>
   <div class="borda0 header-div-right">
-    @if (authService.isLoggedIn()) {
+    <ng-container *ngIf="authService.isLoggedIn()">
       <button
         id="header-login"
         class="button-header"
@@ -23,9 +23,9 @@
         >
         Logout
       </button>
-    }
+    </ng-container>
 
-    @if (!authService.isLoggedIn()) {
+    <ng-container *ngIf="!authService.isLoggedIn()">
       <button
         id="header-login"
         class="button-header"
@@ -33,7 +33,7 @@
         >
         Entrar
       </button>
-    }
+    </ng-container>
   </div>
 
 </header>

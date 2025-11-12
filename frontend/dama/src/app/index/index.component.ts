@@ -5,6 +5,7 @@ import { MaterialComponent } from "../material/material.component";
 
 @Component({
     selector: 'app-index',
+    standalone: true,
     imports: [RouterLink, HeaderComponent, MaterialComponent],
     templateUrl: './index.component.html',
     styleUrl: './index.component.css'

@@ -10,6 +10,7 @@ import { HeaderComponent } from "../components/header/header.component"
 })
 @Component({
     selector: "app-cadastro",
+  standalone: true,
     imports: [FormsModule, HeaderComponent, CommonModule],
     templateUrl: "./cadastro.component.html",
     styleUrls: ["./cadastro.component.css"]

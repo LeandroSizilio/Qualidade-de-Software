@@ -8,6 +8,7 @@ import { EditorComponent } from "../editor/editor.component"
 
 @Component({
     selector: "app-relato",
+  standalone: true,
   imports: [CommonModule, FormsModule, HeaderComponent, EditorComponent],
     templateUrl: "./relato.component.html",
     styleUrls: ["./relato.component.css"]

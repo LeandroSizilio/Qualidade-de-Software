@@ -4,6 +4,7 @@ import { EditorModule } from "primeng/editor";
 
 @Component({
     selector: "app-editor",
+  standalone: true,
     templateUrl: "./editor.component.html",
     styleUrls: ["./editor.component.css"],
     imports: [FormsModule, EditorModule]

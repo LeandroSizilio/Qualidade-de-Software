@@ -7,6 +7,7 @@ import { HeaderComponent } from "../components/header/header.component"
 
 @Component({
     selector: "app-relato-detalhe",
+  standalone: true,
     imports: [CommonModule, HeaderComponent],
     templateUrl: "./relato-detalhe.component.html",
     styleUrls: ["./relato-detalhe.component.css"],

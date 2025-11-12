@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { IndexComponent } from "../../index/index.component";
 import { AuthService } from '../../services/auth.service';
-import { CommonModule } from '@angular/common';
+
 import { ButtonModule } from 'primeng/button'; 
 
 
 @Component({
     selector: 'app-header',
-    imports: [RouterLink, RouterOutlet, IndexComponent, CommonModule, ButtonModule],
+    imports: [RouterLink, RouterOutlet, IndexComponent, ButtonModule],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })

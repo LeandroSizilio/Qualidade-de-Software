@@ -1,5 +1,5 @@
 import { FormsModule } from "@angular/forms"
-import { CommonModule } from "@angular/common"
+
 import { TruncatePipe } from "../truncate.pipe"
 import { Component, type OnInit } from "@angular/core"
 import { RelatosService, Relato } from "../services/relatos.service"
@@ -14,17 +14,16 @@ import { DatePicker } from 'primeng/datepicker';
 @Component({
     selector: "app-relatos",
     imports: [
-        CommonModule,
-        FormsModule,
-        HeaderComponent,
-        TruncatePipe,
-        RouterModule,
-        RouterLink,
-        CardModule,
-        ButtonModule,
-        DatePickerModule,
-        DatePicker,
-    ],
+    FormsModule,
+    HeaderComponent,
+    TruncatePipe,
+    RouterModule,
+    RouterLink,
+    CardModule,
+    ButtonModule,
+    DatePickerModule,
+    DatePicker
+],
     templateUrl: "./relatos.component.html",
     styleUrls: ["./relatos.component.css"]
 })

@@ -68,4 +68,17 @@ jobs:
           format: 'ALL'                            # Gera HTML, JSON e XML
           scanpath: 'frontend/dama'                # Pasta do Angular
           project: 'qualidade-software-frontend'   # Nome do projeto
-          failBui
+          failBuildOnCVSS: '7'                    # Falha se CVSS >= 7.0 (High ou Critical)
+          suppressionFile: 'frontend/dama/dependency-check-suppressions.xml' # opcional (ver abaixo)
+
+      # -------------------------------
+      # 7. Salva relatórios OWASP como artifacts
+      # -------------------------------
+      - name: Upload Dependency-Check reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-check-reports
+          path: |
+            dependency-check-report.html
+            dependency-check-report.xml
+            dependency-check-report.json

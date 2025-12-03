@@ -7,7 +7,6 @@ on:
   pull_request:
 
 jobs:
-  # Job de lint — sem dependências (se falhar, o build não roda)
   lint:
     name: Lint (frontend/dama)
     runs-on: ubuntu-latest
@@ -25,13 +24,12 @@ jobs:
 
       - name: Install dependencies (frontend/dama)
         working-directory: frontend/dama
-        run: npm ci
+        run: npm install
 
       - name: Run deprecation lint
         working-directory: frontend/dama
         run: npm run lint:deprecation
 
-  # Job de build — depende do lint. Só roda se o lint passar.
   build:
     name: Build (frontend/dama)
     runs-on: ubuntu-latest
@@ -50,7 +48,7 @@ jobs:
 
       - name: Install dependencies (frontend/dama)
         working-directory: frontend/dama
-        run: npm ci
+        run: npm install
 
       - name: Build Angular app (production)
         working-directory: frontend/dama

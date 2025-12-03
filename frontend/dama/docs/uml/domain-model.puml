@@ -1,0 +1,48 @@
+@startuml DomainModel
+
+class Usuario {
+  +id: UUID
+  +username: string
+  +email: string
+  +password: string
+  +first_name: string
+  +last_name: string
+  +perfil: string {ong, pro, admin}
+  +status: string {sub, ok, del}
+  +is_active: boolean
+  +is_staff: boolean
+  +date_joined: DateTime
+}
+
+class Profissional {
+  +id: UUID
+  +nome_completo: string
+  +cpf: string {unique}
+  +conselho: string {unique}
+  +contato: string {unique}
+  +bio: string {optional}
+}
+
+class Ong {
+  +id: UUID
+  +razao_social: string {unique}
+  +cnpj: string {unique}
+  +contato: string {unique}
+  +bio: string {optional}
+}
+
+class Publicacao {
+  +id: UUID
+  +conteudo: string
+  +tag: string {relato, noticia, estatistica, projeto}
+  +status: string {sub, ok, del}
+  +data_criacao: DateTime
+  +imagem_publicacao: Image {optional}
+}
+
+' Relacionamentos
+Usuario ||--o| Profissional : user
+Usuario ||--o| Ong : user
+Usuario ||--o{ Publicacao : publicador
+
+@enduml

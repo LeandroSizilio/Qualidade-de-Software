@@ -53,3 +53,58 @@ jobs:
       - name: Build Angular app (production)
         working-directory: frontend/dama
         run: npm run build -- --configuration production
+
+  generate-uml:
+    name: Generate UML diagrams (frontend/dama)
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Java (for PlantUML)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Download PlantUML JAR (reliable mirror + verify)
+        run: |
+          echo "Downloading PlantUML..."
+          curl -fsSL -o "${{ github.workspace }}/plantuml.jar" "https://downloads.sourceforge.net/project/plantuml/plantuml.jar"
+          echo "Downloaded size:"
+          ls -lh "${{ github.workspace }}/plantuml.jar"
+          # quick sanity check: try to print version (will error if invalid)
+          java -jar "${{ github.workspace }}/plantuml.jar" -version
+
+      - name: Generate UML diagrams
+        working-directory: frontend/dama
+        run: |
+          echo "Working dir: $(pwd)"
+          # ensure output dir exists
+          mkdir -p docs/uml
+
+          # path to plantuml.jar downloaded at repo root (github.workspace)
+          PLANTUML_JAR="${{ github.workspace }}/plantuml.jar"
+          echo "Using plantuml.jar at: $PLANTUML_JAR"
+          ls -lh "$PLANTUML_JAR" || (echo "plantuml.jar not found" && exit 1)
+
+          # list .puml files under docs/uml (adjust if you keep them elsewhere)
+          echo "Listing PUML files in docs/uml:"
+          ls -la docs/uml/*.puml || echo "No .puml files found in docs/uml"
+
+          # if none found, exit with helpful message
+          if ! compgen -G "docs/uml/*.puml" > /dev/null; then
+            echo "ERROR: No .puml files found in frontend/dama/docs/uml. Ensure .puml exist or update the path."
+            exit 1
+          fi
+
+          # generate diagrams (output to docs/uml)
+          java -jar "$PLANTUML_JAR" -verbose -o docs/uml docs/uml/*.puml
+
+      - name: Upload UML artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uml-diagrams
+          path: frontend/dama/docs/uml

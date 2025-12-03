@@ -69,15 +69,21 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Download PlantUML JAR
-        run: curl -L -o plantuml.jar https://www.plantuml.com/plantuml.jar
+      - name: Download PlantUML JAR (reliable mirror + verify)
+        run: |
+          echo "Downloading PlantUML..."
+          curl -fsSL -o "${{ github.workspace }}/plantuml.jar" "https://downloads.sourceforge.net/project/plantuml/plantuml.jar"
+          echo "Downloaded size:"
+          ls -lh "${{ github.workspace }}/plantuml.jar"
+          # quick sanity check: try to print version (will error if invalid)
+          java -jar "${{ github.workspace }}/plantuml.jar" -version
 
       - name: Generate UML diagrams
         working-directory: frontend/dama
         run: |
           mkdir -p docs/uml
-          # plantuml.jar is downloaded at the repo root, so from frontend/dama its path is ../../plantuml.jar
-          java -jar ../../plantuml.jar -verbose -o docs/uml src/uml/*.puml
+          java -jar "${{ github.workspace }}/plantuml.jar" -verbose -o docs/uml src/uml/*.puml
+
 
       - name: Upload UML artifacts
         uses: actions/upload-artifact@v4

@@ -2,9 +2,11 @@
 <div class="content-wrapper">
   <main>
 
-    <div *ngIf="mensagem" class="alert" [ngClass]="{'alert-success': mensagem.includes('sucesso'), 'alert-danger': mensagem.includes('Erro')}">
-      {{ mensagem }}
-    </div>
+    @if (mensagem) {
+      <div class="alert" [ngClass]="{'alert-success': mensagem.includes('sucesso'), 'alert-danger': mensagem.includes('Erro')}">
+        {{ mensagem }}
+      </div>
+    }
 
     <div class="div-form">
       <form (ngSubmit)="onSubmit()" name="cadastro" #cadastroForm="ngForm">
@@ -18,21 +20,21 @@
           </select>
         </div>
 
-        <ng-container *ngIf="tipoCadastro === 'profissional'">
+        @if (tipoCadastro === 'profissional') {
           <label for="nome_completo">Nome Completo:</label>
           <input type="text" id="nome_completo" [(ngModel)]="profissional.nome_completo" name="nome_completo" required placeholder="Digite seu nome completo">
           <label for="cpf">CPF:</label>
           <input type="text" id="cpf" [(ngModel)]="profissional.cpf" name="cpf" required placeholder="Digite seu CPF">
           <label for="conselho">Conselho:</label>
           <input type="text" id="conselho" [(ngModel)]="profissional.conselho" name="conselho" required placeholder="Digite seu conselho">
-        </ng-container>
+        }
 
-        <ng-container *ngIf="tipoCadastro === 'ong'">
+        @if (tipoCadastro === 'ong') {
           <label for="razao_social">Razão Social:</label>
           <input type="text" id="razao_social" [(ngModel)]="ong.razao_social" name="razao_social" required placeholder="Digite a razão social">
           <label for="cnpj">CNPJ:</label>
           <input type="text" id="cnpj" [(ngModel)]="ong.cnpj" name="cnpj" required placeholder="Digite o CNPJ">
-        </ng-container>
+        }
 
         <label for="login">Login:</label>
         <input type="text" id="login" [ngModel]="tipoCadastro === 'profissional' ? profissional.user.username : ong.user.username" (ngModelChange)="updateLogin($event)" name="login" required placeholder="Digite seu login">

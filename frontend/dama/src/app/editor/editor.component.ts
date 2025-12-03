@@ -1,16 +1,16 @@
-import { Component, type OnInit, Output, EventEmitter, Input } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { EditorModule } from "primeng/editor";
+import { Component, type OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { EditorModule } from 'primeng/editor';
 
 @Component({
-    selector: "app-editor",
+    selector: 'app-editor',
   standalone: true,
-    templateUrl: "./editor.component.html",
-    styleUrls: ["./editor.component.css"],
+    templateUrl: './editor.component.html',
+    styleUrls: ['./editor.component.css'],
     imports: [FormsModule, EditorModule]
 })
 export class EditorComponent implements OnInit {
-  @Input() text = "";
+  @Input() text = '';
   @Output() textChange = new EventEmitter<string>();
 
   ngOnInit() {
@@ -26,27 +26,27 @@ export class EditorComponent implements OnInit {
 
   private emitTextChange() {
     if (!this.text) {
-      this.textChange.emit("");
+      this.textChange.emit('');
       return;
     }
 
     // Limpa o texto mantendo a formatação básica
-    let cleanText = this.text
-      .replace(/&nbsp;/g, " ")
+    const cleanText = this.text
+      .replace(/&nbsp;/g, ' ')
 
     // Se o texto estiver vazio após a limpeza
-    if (!cleanText || cleanText.trim() === "") {
-      this.textChange.emit("");
+    if (!cleanText || cleanText.trim() === '') {
+      this.textChange.emit('');
       return;
     }
 
     // Verifica se há conteúdo real, não apenas tags HTML
-    const tempDiv = document.createElement("div");
+    const tempDiv = document.createElement('div');
     tempDiv.innerHTML = cleanText;
-    const textContent = tempDiv.textContent?.trim() || "";
+    const textContent = tempDiv.textContent?.trim() || '';
 
     if (!textContent) {
-      this.textChange.emit("");
+      this.textChange.emit('');
       return;
     }
 

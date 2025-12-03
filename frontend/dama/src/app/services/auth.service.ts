@@ -1,38 +1,42 @@
 // auth.service.ts
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+export interface LoginResponse {
+  token: string;
+  username: string;
+  perfil: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+
   private apiUrl = 'http://127.0.0.1:8000/api/login/';
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
-
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {}
 
   // Observable para componentes se inscreverem
   isLoggedIn$ = this.loggedIn.asObservable();
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username, password }).pipe(
+  login(username: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl, { username, password }).pipe(
       tap(response => {
         this.handleLoginSuccess(response);
       }),
       catchError(error => {
         this.handleLoginError(error);
-        return of(null);
+        throw error;
       })
     );
   }
 
-  private handleLoginSuccess(response: any): void {
+  private handleLoginSuccess(response: LoginResponse): void {
     if (response?.token) {
       localStorage.setItem('token', response.token);
       localStorage.setItem('username', response.username);
@@ -42,7 +46,7 @@ export class AuthService {
     }
   }
 
-  private handleLoginError(error: any): void {
+  private handleLoginError(error: unknown): void {
     console.error('Erro no login:', error);
     this.logout();
   }

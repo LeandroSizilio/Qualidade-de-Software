@@ -7,9 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint 'src/**/*.{ts,js}' --max-warnings=0",
-    "lint:fix": "eslint 'src/**/*.{ts,js}' --fix",
-    "lint:deprecation": "eslint 'src/**/*.{ts,js}' --rule 'deprecation/deprecation: error' --max-warnings=0"
+    "lint": "npx eslint ./src --ext .ts,.html --max-warnings=0 --resolve-plugins-relative-to .",
+    "lint:fix": "npx eslint ./src --ext .ts,.html --fix --resolve-plugins-relative-to .",
+    "lint:deprecation": "eslint ./src --ext .ts --resolve-plugins-relative-to . --max-warnings=0"
   },
   "private": true,
   "dependencies": {
@@ -31,10 +31,15 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
+    "@angular-eslint/eslint-plugin": "^21.0.1",
+    "@angular-eslint/eslint-plugin-template": "^21.0.1",
+    "@angular-eslint/template-parser": "^21.0.1",
     "@angular/build": "^20.3.9",
     "@angular/cli": "^20.3.9",
     "@angular/compiler-cli": "^20.3.10",
     "@types/jasmine": "~5.1.12",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
     "eslint": "^8.57.1",
     "eslint-plugin-deprecation": "^3.0.0",
     "jasmine-core": "~5.12.1",

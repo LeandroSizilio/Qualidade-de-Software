@@ -7,11 +7,9 @@ on:
   pull_request:
 
 jobs:
-
-  build:
-    name: Build & Lint (frontend/dama)
+  lint:
+    name: Lint (frontend/dama)
     runs-on: ubuntu-latest
-    needs: dependency-check
 
     steps:
       - name: Checkout repository
@@ -26,11 +24,31 @@ jobs:
 
       - name: Install dependencies (frontend/dama)
         working-directory: frontend/dama
-        run: npm ci
+        run: npm install
 
       - name: Run deprecation lint
         working-directory: frontend/dama
         run: npm run lint:deprecation
+
+  build:
+    name: Build (frontend/dama)
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js (com cache)
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: frontend/dama/package-lock.json
+
+      - name: Install dependencies (frontend/dama)
+        working-directory: frontend/dama
+        run: npm install
 
       - name: Build Angular app (production)
         working-directory: frontend/dama

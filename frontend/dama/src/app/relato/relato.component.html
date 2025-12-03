@@ -18,8 +18,10 @@
   </section>
 
   <div id="main-div" class="borda" [ngClass]="{'embassado': mostraConfirmacao}"></div>
-  <div *ngIf="mostraConfirmacao" class="confirmation-div">
-    <p>{{ mensagem }}</p>
-    <button type="button" id="relatoButton" [innerText]="textoBotao" (click)="eventoBotao()"></button>
-  </div>
+  @if (mostraConfirmacao) {
+    <div class="confirmation-div">
+      <p>{{ mensagem }}</p>
+      <button type="button" id="relatoButton" [innerText]="textoBotao" (click)="eventoBotao()"></button>
+    </div>
+  }
 </main>

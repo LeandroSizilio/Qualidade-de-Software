@@ -10,7 +10,7 @@
                     "lint":  "npx eslint ./src --ext .ts,.html --max-warnings=0 --resolve-plugins-relative-to .",
                     "lint:fix":  "npx eslint ./src --ext .ts,.html --fix --resolve-plugins-relative-to .",
                     "lint:deprecation": "eslint ./src --ext .ts --rule 'deprecation/deprecation: error' --resolve-plugins-relative-to . --max-warnings=0"
-,
+},
     "private":  true,
     "dependencies":  {
                          "@angular/animations":  "^20.3.10",

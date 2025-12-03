@@ -5,6 +5,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+export interface LoginResponse {
+  token: string;
+  username: string;
+  perfil: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,16 +21,11 @@ export class AuthService {
   private apiUrl = 'http://127.0.0.1:8000/api/login/';
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
-
   // Observable para componentes se inscreverem
   isLoggedIn$ = this.loggedIn.asObservable();
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { username, password }).pipe(
+  login(username: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl, { username, password }).pipe(
       tap(response => {
         this.handleLoginSuccess(response);
       }),
@@ -35,7 +36,7 @@ export class AuthService {
     );
   }
 
-  private handleLoginSuccess(response: any): void {
+  private handleLoginSuccess(response: LoginResponse): void {
     if (response?.token) {
       localStorage.setItem('token', response.token);
       localStorage.setItem('username', response.username);
@@ -45,7 +46,7 @@ export class AuthService {
     }
   }
 
-  private handleLoginError(error: any): void {
+  private handleLoginError(error: unknown): void {
     console.error('Erro no login:', error);
     this.logout();
   }

@@ -16,13 +16,8 @@ export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  username = ''
-  password = ''
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
+  username = '';
+  password = '';
 
   onSubmit() {
     if (this.username && this.password) {

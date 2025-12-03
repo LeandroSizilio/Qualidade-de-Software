@@ -18,25 +18,26 @@
 
 
     <div id="relatos" class="">
-      <ng-container *ngIf="relatos && relatos.length > 0; else semRelatos">
+      @if (relatos && relatos.length > 0) {
         <div class="grid-relatos">
-          <div *ngFor="let relato of relatos">
-            <p-card [style]="{ width: '18rem', height:'18rem', overflow: 'hidden', display: 'flex', flexDirection: 'column' }">
-              <div class="relato-conteudo" [innerHTML]="sanitizeHTML(relato.conteudo | truncate:250)" style="flex-grow: 1;"></div>
-              <ng-template pTemplate="footer">
-                <a [routerLink]="['/relato', relato.id]" class="vermais" [style]="{ padding: '0px'}">Ver mais...</a>
-              </ng-template>
-            </p-card>
-          </div>
+          @for (relato of relatos; track relato.id) {
+            <div>
+              <p-card [style]="{ width: '18rem', height:'18rem', overflow: 'hidden', display: 'flex', flexDirection: 'column' }">
+                <div class="relato-conteudo" [innerHTML]="sanitizeHTML(relato.conteudo | truncate:250)" style="flex-grow: 1;"></div>
+                <ng-template pTemplate="footer">
+                  <a [routerLink]="['/relato', relato.id]" class="vermais" [style]="{ padding: '0px'}">Ver mais...</a>
+                </ng-template>
+              </p-card>
+            </div>
+          }
         </div>
-      </ng-container>
-      <ng-template #semRelatos>
+      } @else {
         <div class="bodycard">
           <div class="sem-relatos">
             <p>Nenhum relato publicado ainda.</p>
           </div>
         </div>
-      </ng-template>
+      }
 
     </div>
   </section>

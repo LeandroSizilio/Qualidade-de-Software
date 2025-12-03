@@ -7,8 +7,8 @@ export interface Relato {
   id?: string;
   conteudo: string;
   data_criacao: Date;
-  title: string;
-  content: string;
+  title?: string;
+  content?: string;
 }
 
 @Injectable({
@@ -18,11 +18,7 @@ export interface Relato {
 export class RelatosService {
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://127.0.0.1:8000/api'
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]); 
-  constructor() {}
+  private apiUrl = 'http://127.0.0.1:8000/api';
   retrieveRelato(): Observable<HttpResponse<Relato[]>> {
     return this.http.get<Relato[]>(`${this.apiUrl}/relato/`, { observe: 'response' })
   }

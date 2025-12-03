@@ -1,5 +1,5 @@
 import { Component, Injectable, inject } from '@angular/core'
-import { CadastroService, type Profissional, type Ong, User } from '../services/cadastro.service'
+import { CadastroService, type Profissional, type Ong } from '../services/cadastro.service'
 import { ValidadorCnpjService } from '../services/validador-cnpj.service'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
@@ -19,7 +19,7 @@ export class CadastroComponent {
   private cadastroService = inject(CadastroService);
   private validadorCnpjService = inject(ValidadorCnpjService);
 
-  tipoCadastro: 'profissional' | 'ong' = 'profissional'
+  tipoCadastro: 'profissional' | 'ong' = 'profissional';
 
   profissional: Profissional = {
     nome_completo: '',
@@ -48,13 +48,8 @@ export class CadastroComponent {
     bio: '',
   }
 
-  senhaRepetida = ''
-  mensagem: string | null = null
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
+  senhaRepetida = '';
+  mensagem: string | null = null;
 
   updateLogin(value: string) {
     if (this.tipoCadastro === 'profissional') {
@@ -132,7 +127,7 @@ export class CadastroComponent {
         this.voltarParaIndex()
         this.exibirMensagemTemporaria()
       },
-      error: (error) => {
+      error: (_error) => {
         this.mensagem = 'Erro ao cadastrar profissional.'
         this.exibirMensagemTemporaria()
       },
@@ -149,7 +144,7 @@ export class CadastroComponent {
           this.exibirMensagemTemporaria()
         }
       },
-      error: (error) => {
+      error: (_error) => {
         this.mensagem = 'Erro ao validar CNPJ. Por favor, tente novamente mais tarde.'
         this.exibirMensagemTemporaria()
       },
@@ -164,7 +159,7 @@ export class CadastroComponent {
         this.voltarParaIndex()
         this.exibirMensagemTemporaria()
       },
-      error: (error) => {
+      error: (_error) => {
         this.mensagem = 'Erro ao cadastrar ONG.'
         this.exibirMensagemTemporaria()
       },

@@ -37,11 +37,6 @@ export class RelatosComponent implements OnInit {
   relatos: Relato[] = [];
   rangeDates: Date[] | undefined;
 
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);  
-
-  constructor() {}
-
   ngOnInit(): void {
     this.relatosService.retrieveRelato().subscribe((response) => {
       if (response.status === 200) {

@@ -34,13 +34,8 @@ export interface Ong {
 export class CadastroService {
   private http = inject(HttpClient);
 
-  private apiUrlProfissional = 'http://127.0.0.1:8000/api/profissional/'
-  private apiUrlOng = 'http://127.0.0.1:8000/api/ong/'
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
+  private apiUrlProfissional = 'http://127.0.0.1:8000/api/profissional/';
+  private apiUrlOng = 'http://127.0.0.1:8000/api/ong/';
 
   registerProfissional(profissional: Profissional): Observable<Profissional> {
     return this.http.post<Profissional>(this.apiUrlProfissional, profissional)

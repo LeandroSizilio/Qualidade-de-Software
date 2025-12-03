@@ -13,9 +13,4 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   authService = inject(AuthService);
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {} 
 }

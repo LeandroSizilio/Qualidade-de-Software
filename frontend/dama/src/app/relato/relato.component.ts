@@ -22,16 +22,11 @@ export class RelatoComponent implements OnInit {
     publicador: '',
   }
 
-  mostraConfirmacao = false
-  mostraResposta = false
+  mostraConfirmacao = false;
+  mostraResposta = false;
   mensagem =
-    'As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído.'
-  textoBotao = 'Entendo e desejo publicar'
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
+    'As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído.';
+  textoBotao = 'Entendo e desejo publicar';
 
   ngOnInit() {
     this.relato.publicador = localStorage.getItem('username') || ''

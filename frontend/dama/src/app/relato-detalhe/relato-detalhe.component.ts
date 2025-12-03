@@ -18,12 +18,7 @@ export class RelatoDetalheComponent implements OnInit {
   private relatosService = inject(RelatosService);
   private sanitizer = inject(DomSanitizer);
 
-  relato: Relato | null = null
-
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() {}
+  relato: Relato | null = null;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')

@@ -5,6 +5,12 @@ import { map } from 'rxjs/operators';
 
 // token 1fdd39bda08c898cb238fbadd31d65a3f5447ee6619369b9aab1bb1cc4f27b34
 
+interface CnpjApiResponse {
+  estabelecimento?: {
+    situacao_cadastral?: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,14 +19,9 @@ export class ValidadorCnpjService {
 
   private apiUrl = 'https://publica.cnpj.ws/cnpj/';
 
-  /** Inserted by Angular inject() migration for backwards compatibility */
-  constructor(...args: unknown[]);
-
-  constructor() { }
-
   validarCnpj(cnpj: string): Observable<boolean> {
-    return this.http.get(`${this.apiUrl}${cnpj}`, {headers: {Accept: 'application/json', contentType: 'application/json'}}).pipe(
-      map((resposta: any) => {
+    return this.http.get<CnpjApiResponse>(`${this.apiUrl}${cnpj}`, {headers: {Accept: 'application/json', contentType: 'application/json'}}).pipe(
+      map((resposta) => {
         // Se a API retornar um campo "status", significa que o CNPJ é válido
         return resposta?.estabelecimento?.situacao_cadastral == 'Ativa';
       })

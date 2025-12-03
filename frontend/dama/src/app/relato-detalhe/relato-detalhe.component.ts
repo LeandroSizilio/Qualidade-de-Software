@@ -23,14 +23,14 @@ export class RelatoDetalheComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')
     if (id) {
-      this.relatosService.getRelato(id).subscribe(
-        (relato) => {
+      this.relatosService.getRelato(id).subscribe({
+        next: (relato) => {
           this.relato = relato
         },
-        (error) => {
+        error: (error) => {
           console.error('Erro ao carregar o relato:', error)
         },
-      )
+      })
     }
   }
 

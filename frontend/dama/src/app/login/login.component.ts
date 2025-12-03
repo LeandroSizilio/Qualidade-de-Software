@@ -21,8 +21,8 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.username && this.password) {
-      this.authService.login(this.username, this.password).subscribe(
-        (response) => {
+      this.authService.login(this.username, this.password).subscribe({
+        next: (response) => {
           console.log('Login bem-sucedido', response)
           localStorage.setItem('token', response.token)
           localStorage.setItem('username', response.username)
@@ -31,11 +31,11 @@ export class LoginComponent {
           }
           this.router.navigate(['/'])
         },
-        (error) => {
+        error: (error) => {
           console.error('Erro no login:', error)
           // Adicione aqui a lógica para mostrar uma mensagem de erro ao usuário
         },
-      )
+      })
     } else {
       console.error('Username ou password não preenchidos')
       // Adicione aqui a lógica para mostrar uma mensagem de erro ao usuário

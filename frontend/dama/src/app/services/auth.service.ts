@@ -31,7 +31,7 @@ export class AuthService {
       }),
       catchError(error => {
         this.handleLoginError(error);
-        return of(null);
+        throw error;
       })
     );
   }

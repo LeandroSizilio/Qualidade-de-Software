@@ -26,7 +26,9 @@ export class LoginComponent {
           console.log('Login bem-sucedido', response)
           localStorage.setItem('token', response.token)
           localStorage.setItem('username', response.username)
-          localStorage.setItem('perfil', response.perfil)
+          if (response.perfil) {
+            localStorage.setItem('perfil', response.perfil)
+          }
           this.router.navigate(['/'])
         },
         (error) => {

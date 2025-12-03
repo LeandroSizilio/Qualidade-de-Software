@@ -9,8 +9,8 @@
                     "test":  "ng test",
                     "lint":  "npx eslint ./src --ext .ts,.html --max-warnings=0 --resolve-plugins-relative-to .",
                     "lint:fix":  "npx eslint ./src --ext .ts,.html --fix --resolve-plugins-relative-to .",
-                    "lint:deprecation":  "eslint \u0027src/**/*.{ts,js}\u0027 --rule \u0027deprecation/deprecation: error\u0027 --max-warnings=0"
-                },
+                    "lint:deprecation": "eslint ./src --ext .ts --rule 'deprecation/deprecation: error' --resolve-plugins-relative-to . --max-warnings=0"
+,
     "private":  true,
     "dependencies":  {
                          "@angular/animations":  "^20.3.10",

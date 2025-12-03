@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -9,9 +9,14 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ValidadorCnpjService {
+  private http = inject(HttpClient);
+
   private apiUrl = 'https://publica.cnpj.ws/cnpj/';
 
-  constructor(private http: HttpClient) { }
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() { }
 
   validarCnpj(cnpj: string): Observable<boolean> {
     return this.http.get(`${this.apiUrl}${cnpj}`, {headers: {Accept: 'application/json', contentType: 'application/json'}}).pipe(

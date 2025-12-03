@@ -1,43 +1,46 @@
-import { Component } from "@angular/core"
-import { HeaderComponent } from "../components/header/header.component"
-import { FormsModule } from "@angular/forms"
+import { Component, inject } from '@angular/core'
+import { HeaderComponent } from '../components/header/header.component'
+import { FormsModule } from '@angular/forms'
 
-import { Router } from "@angular/router"
-import { AuthService } from "../services/login.service"
+import { Router } from '@angular/router'
+import { AuthService } from '../services/login.service'
 
 @Component({
-    selector: "app-login",
+    selector: 'app-login',
   standalone: true,
     imports: [HeaderComponent, FormsModule],
-    templateUrl: "./login.component.html",
-    styleUrl: "./login.component.css"
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username = ""
-  password = ""
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) {}
+  username = ''
+  password = ''
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   onSubmit() {
     if (this.username && this.password) {
       this.authService.login(this.username, this.password).subscribe(
         (response) => {
-          console.log("Login bem-sucedido", response)
-          localStorage.setItem("token", response.token)
-          localStorage.setItem("username", response.username)
-          localStorage.setItem("perfil", response.perfil)
-          this.router.navigate(["/"])
+          console.log('Login bem-sucedido', response)
+          localStorage.setItem('token', response.token)
+          localStorage.setItem('username', response.username)
+          localStorage.setItem('perfil', response.perfil)
+          this.router.navigate(['/'])
         },
         (error) => {
-          console.error("Erro no login:", error)
+          console.error('Erro no login:', error)
           // Adicione aqui a lógica para mostrar uma mensagem de erro ao usuário
         },
       )
     } else {
-      console.error("Username ou password não preenchidos")
+      console.error('Username ou password não preenchidos')
       // Adicione aqui a lógica para mostrar uma mensagem de erro ao usuário
     }
   }

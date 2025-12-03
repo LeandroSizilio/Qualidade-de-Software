@@ -6,7 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
     selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FooterComponent],
-    styleUrls: ["./app.component.css"],
+    styleUrls: ['./app.component.css'],
     template: `
     <div class="app-container">
       <div class="main-content">

@@ -1,5 +1,5 @@
 // auth.service.ts
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
@@ -9,13 +9,16 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+
   private apiUrl = 'http://127.0.0.1:8000/api/login/';
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {}
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {}
 
   // Observable para componentes se inscreverem
   isLoggedIn$ = this.loggedIn.asObservable();

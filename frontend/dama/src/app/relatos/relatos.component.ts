@@ -1,18 +1,18 @@
-import { FormsModule } from "@angular/forms"
-import { CommonModule } from "@angular/common"
+import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common'
 
-import { TruncatePipe } from "../truncate.pipe"
-import { Component, type OnInit } from "@angular/core"
-import { RelatosService, Relato } from "../services/relatos.service"
-import { HeaderComponent } from "../components/header/header.component"
-import { RouterLink, RouterModule } from "@angular/router"
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser"
-import { CardModule } from "primeng/card"
-import { ButtonModule } from "primeng/button"
+import { TruncatePipe } from '../truncate.pipe'
+import { Component, type OnInit, inject } from '@angular/core'
+import { RelatosService, Relato } from '../services/relatos.service'
+import { HeaderComponent } from '../components/header/header.component'
+import { RouterLink, RouterModule } from '@angular/router'
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser'
+import { CardModule } from 'primeng/card'
+import { ButtonModule } from 'primeng/button'
 import { DatePickerModule } from 'primeng/datepicker';
 
 @Component({
-    selector: "app-relatos",
+    selector: 'app-relatos',
   standalone: true,
   imports: [
   CommonModule,
@@ -26,26 +26,29 @@ import { DatePickerModule } from 'primeng/datepicker';
   DatePickerModule,
     
 ],
-    templateUrl: "./relatos.component.html",
-    styleUrls: ["./relatos.component.css"]
+    templateUrl: './relatos.component.html',
+    styleUrls: ['./relatos.component.css']
 })
 export class RelatosComponent implements OnInit {
-  mensagem = "";
-  relatos: Relato[] = [];
-  rangeDates: Date[] | undefined;  
+  private relatosService = inject(RelatosService);
+  private sanitizer = inject(DomSanitizer);
 
-  constructor(
-    private relatosService: RelatosService,
-    private sanitizer: DomSanitizer,
-  ) {}
+  mensagem = '';
+  relatos: Relato[] = [];
+  rangeDates: Date[] | undefined;
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);  
+
+  constructor() {}
 
   ngOnInit(): void {
     this.relatosService.retrieveRelato().subscribe((response) => {
       if (response.status === 200) {
         this.relatos = response.body || []
-        this.mensagem = "Os relatos foram carregados com sucesso!"
+        this.mensagem = 'Os relatos foram carregados com sucesso!'
       } else {
-        this.mensagem = "Não foi possível carregar os relatos."
+        this.mensagem = 'Não foi possível carregar os relatos.'
       }
     })
   }

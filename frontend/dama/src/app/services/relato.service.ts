@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -12,9 +12,14 @@ export interface Relato {
   providedIn: 'root'
 })
 export class RelatoService {
-  private apiUrl = 'http://127.0.0.1:8000/api/relato/'; 
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) { }
+  private apiUrl = 'http://127.0.0.1:8000/api/relato/';
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]); 
+
+  constructor() { }
 
   registerRelato(relato: Relato): Observable<HttpResponse<any>> {
     const token = localStorage.getItem('token'); // ou de onde você estiver armazenando o token

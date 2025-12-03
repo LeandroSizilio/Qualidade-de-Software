@@ -81,9 +81,27 @@ jobs:
       - name: Generate UML diagrams
         working-directory: frontend/dama
         run: |
+          echo "Working dir: $(pwd)"
+          # ensure output dir exists
           mkdir -p docs/uml
-          java -jar "${{ github.workspace }}/plantuml.jar" -verbose -o docs/uml src/uml/*.puml
 
+          # path to plantuml.jar downloaded at repo root (github.workspace)
+          PLANTUML_JAR="${{ github.workspace }}/plantuml.jar"
+          echo "Using plantuml.jar at: $PLANTUML_JAR"
+          ls -lh "$PLANTUML_JAR" || (echo "plantuml.jar not found" && exit 1)
+
+          # list .puml files under docs/uml (adjust if you keep them elsewhere)
+          echo "Listing PUML files in docs/uml:"
+          ls -la docs/uml/*.puml || echo "No .puml files found in docs/uml"
+
+          # if none found, exit with helpful message
+          if ! compgen -G "docs/uml/*.puml" > /dev/null; then
+            echo "ERROR: No .puml files found in frontend/dama/docs/uml. Ensure .puml exist or update the path."
+            exit 1
+          fi
+
+          # generate diagrams (output to docs/uml)
+          java -jar "$PLANTUML_JAR" -verbose -o docs/uml docs/uml/*.puml
 
       - name: Upload UML artifacts
         uses: actions/upload-artifact@v4

@@ -1,8 +1,0 @@
-Format,Files analyzed,Total lines,Total tokens,Clones found,Duplicated lines,Duplicated tokens
-python,44,1759,16657,45,368 (20.92%),3146 (18.89%)
-json,1,15,76,0,0 (0%),0 (0%)
-markdown,1,19,38,0,0 (0%),0 (0%)
-typescript,34,1127,9185,10,67 (5.94%),509 (5.54%)
-markup,12,589,7703,8,54 (9.17%),533 (6.92%)
-css,13,1284,7593,15,164 (12.77%),1191 (15.69%)
-Total:,105,4793,41252,78,653 (13.62%),5379 (13.04%)

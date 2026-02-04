@@ -6,7 +6,7 @@
       "files": ["*.ts"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": { "project": ["tsconfig.json"], "createDefaultProgram": true },
-      "plugins": ["deprecation", "@typescript-eslint", "@angular-eslint"],
+      "plugins": ["deprecation", "@typescript-eslint", "@angular-eslint", "sonarjs", "complexity"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -15,7 +15,14 @@
       "rules": {
         "deprecation/deprecation": "error",
         "quotes": ["error", "single"],
-        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "sonarjs/cognitive-complexity": ["warn", 12],
+        "sonarjs/no-duplicate-string": ["warn", { "threshold": 2 }],
+        "sonarjs/no-small-switch": "warn",
+        "sonarjs/no-identical-functions": "warn",
+        "complexity": ["warn", 8],
+        "max-lines-per-function": ["warn", { "max": 50, "skipBlankLines": true, "skipComments": true }],
+        "max-params": ["warn", 4]
       }
     },
     {

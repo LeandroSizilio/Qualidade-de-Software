@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "npx eslint ./src --ext .ts,.html --max-warnings=0 --resolve-plugins-relative-to .",
     "lint:fix": "npx eslint ./src --ext .ts,.html --fix --resolve-plugins-relative-to .",
-    "lint:deprecation": "eslint ./src --ext .ts --resolve-plugins-relative-to . --max-warnings=0"
+    "lint:deprecation": "eslint ./src --ext .ts --resolve-plugins-relative-to . --max-warnings=0",
+    "lint:smells": "eslint ./src --ext .ts --resolve-plugins-relative-to . --format json > smells-report.json || true",
+    "lint:smells:report": "eslint ./src --ext .ts --resolve-plugins-relative-to ."
   },
   "private": true,
   "dependencies": {
@@ -41,7 +43,9 @@
     "@typescript-eslint/eslint-plugin": "^8.48.1",
     "@typescript-eslint/parser": "^8.48.1",
     "eslint": "^8.57.1",
+    "eslint-plugin-complexity": "^1.0.2",
     "eslint-plugin-deprecation": "^3.0.0",
+    "eslint-plugin-sonarjs": "^3.0.6",
     "jasmine-core": "~5.12.1",
     "karma": "~6.4.4",
     "karma-chrome-launcher": "~3.2.0",

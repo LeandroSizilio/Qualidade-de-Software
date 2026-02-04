@@ -30,10 +30,34 @@ jobs:
         working-directory: frontend/dama
         run: npm run lint:deprecation
 
+  code-smells:
+    name: Code Smell Detection (frontend/dama)
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js (com cache)
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: frontend/dama/package-lock.json
+
+      - name: Install dependencies (frontend/dama)
+        working-directory: frontend/dama
+        run: npm install
+
+      - name: Run code smell detection
+        working-directory: frontend/dama
+        run: npm run lint:smells:report
+
   build:
     name: Build (frontend/dama)
     runs-on: ubuntu-latest
-    needs: lint
+    needs: [lint, code-smells]
 
     steps:
       - name: Checkout repository

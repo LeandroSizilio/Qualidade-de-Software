@@ -1,11 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeaderComponent } from './header.component';
 import { setupComponentTest } from '../../testing/test-helpers';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     const result = await setupComponentTest(HeaderComponent);

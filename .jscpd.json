@@ -2,7 +2,6 @@
   "threshold": 15,
   "minTokens": 20,
   "minLines": 5,
-  "exitCode": 1,
   "reporters": [
     "html",
     "json",

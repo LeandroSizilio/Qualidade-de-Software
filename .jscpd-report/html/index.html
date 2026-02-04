@@ -1,0 +1,662 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Copy/Paste Detector Report</title><link href="styles/tailwind.css" rel="stylesheet"><link href="styles/prism.css" rel="stylesheet"></head><body class="bg-gray-100"><header class="bg-white shadow py-4"><div class="container mx-auto px-4"><h1 class="text-3xl font-semibold text-gray-800">jscpd - copy/paste report</h1></div></header><main class="container mx-auto my-8 p-4 bg-white shadow rounded"><section class="mb-8" id="dashboard"><h2 class="text-2xl font-semibold text-gray-700 mb-4">Dashboard</h2><div class="grid grid-cols-4 gap-4"><div class="bg-blue-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-blue-800 mb-2">Total Files</h3><span class="text-4xl font-bold text-blue-800">105</span></div><div class="bg-green-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-green-800 mb-2">Total Lines of Code</h3><span class="text-4xl font-bold text-green-800">4793</span></div><div class="bg-yellow-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-yellow-800 mb-2">Number of Clones</h3><span class="text-4xl font-bold text-yellow-800">78</span></div><div class="bg-red-200 p-4 rounded text-center"><h3 class="text-lg font-semibold text-red-800 mb-2">Duplicated Lines</h3><span class="text-4xl font-bold text-red-800">653 (13.62%)</span></div></div></section><section class="mb-8" id="formats"><h2 class="text-2xl font-semibold text-gray-700 mb-4">Formats with Duplications</h2><table class="w-full table-auto"><thead><tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"><th class="py-3 px-6 text-left">Format</th><th class="py-3 px-6 text-left">Files</th><th class="py-3 px-6 text-left">Lines</th><th class="py-3 px-6 text-left">Clones</th><th class="py-3 px-6 text-left">Duplicated Lines</th><th class="py-3 px-6 text-left">Duplicated Tokens</th></tr></thead><tbody><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#python-clones">python</a></td><td class="py-3 px-6">44</td><td class="py-3 px-6">1759</td><td class="py-3 px-6">45</td><td class="py-3 px-6">368</td><td class="py-3 px-6">3146</td></tr><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#json-clones">json</a></td><td class="py-3 px-6">1</td><td class="py-3 px-6">15</td><td class="py-3 px-6">0</td><td class="py-3 px-6">0</td><td class="py-3 px-6">0</td></tr><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#markdown-clones">markdown</a></td><td class="py-3 px-6">1</td><td class="py-3 px-6">19</td><td class="py-3 px-6">0</td><td class="py-3 px-6">0</td><td class="py-3 px-6">0</td></tr><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#typescript-clones">typescript</a></td><td class="py-3 px-6">34</td><td class="py-3 px-6">1127</td><td class="py-3 px-6">10</td><td class="py-3 px-6">67</td><td class="py-3 px-6">509</td></tr><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#markup-clones">markup</a></td><td class="py-3 px-6">12</td><td class="py-3 px-6">589</td><td class="py-3 px-6">8</td><td class="py-3 px-6">54</td><td class="py-3 px-6">533</td></tr><tr class="bg-white border-b border-gray-200 text-gray-800 text-sm"><td class="py-3 px-6"><a class="text-blue-600 hover:underline" href="#css-clones">css</a></td><td class="py-3 px-6">13</td><td class="py-3 px-6">1284</td><td class="py-3 px-6">15</td><td class="py-3 px-6">164</td><td class="py-3 px-6">1191</td></tr></tbody></table></section><section class="mb-8" id="txt-clones"><a name="python-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">python</h2><div class="divide-y divide-gray-200 border-b-2"><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 28:21 - Line 36:7), backend\dama\api\view\usuario.py (Line 22:18 - Line 28:4)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn0" onclick="toggleCodeBlock('cloneGroup0', 'expandBtn0', 'collapseBtn0')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn0" onclick="toggleCodeBlock('cloneGroup0', 'expandBtn0', 'collapseBtn0')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup0"><code class="language-python text-sm text-gray-800">(data=request.data)
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 37:2 - Line 60:3), backend\dama\api\view\usuario.py (Line 26:7 - Line 40:36)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn1" onclick="toggleCodeBlock('cloneGroup1', 'expandBtn1', 'collapseBtn1')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn1" onclick="toggleCodeBlock('cloneGroup1', 'expandBtn1', 'collapseBtn1')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup1"><code class="language-python text-sm text-gray-800">, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            item = self.get_object()
+
+            serializer = self.get_serializer(item)
+
+            return Response(serializer.data)
+        
+        except Http404:
+            return Response({'erro': 'objeto não encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+    def list(self, request, *args, **kwargs):
+        try:
+            itens = self.filter_queryset(self.get_queryset())
+
+            if</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 61:32 - Line 73:5), backend\dama\api\view\usuario.py (Line 42:28 - Line 50:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn2" onclick="toggleCodeBlock('cloneGroup2', 'expandBtn2', 'collapseBtn2')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn2" onclick="toggleCodeBlock('cloneGroup2', 'expandBtn2', 'collapseBtn2')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup2"><code class="language-python text-sm text-gray-800">}, status=status.HTTP_404_NOT_FOUND)
+            
+            serializer = self.get_serializer(itens, many=True)
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            item</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 71:15 - Line 76:2), backend\dama\api\view\usuario.py (Line 28:9 - Line 31:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn3" onclick="toggleCodeBlock('cloneGroup3', 'expandBtn3', 'collapseBtn3')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn3" onclick="toggleCodeBlock('cloneGroup3', 'expandBtn3', 'collapseBtn3')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup3"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            item = self.get_object()
+
+            serializer = self.get_serializer(
+                item,</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 82:17 - Line 89:7), backend\dama\api\view\usuario.py (Line 22:5 - Line 56:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn4" onclick="toggleCodeBlock('cloneGroup4', 'expandBtn4', 'collapseBtn4')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn4" onclick="toggleCodeBlock('cloneGroup4', 'expandBtn4', 'collapseBtn4')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup4"><code class="language-python text-sm text-gray-800">)
+
+            if serializer.is_valid():
+                serializer.save()
+
+                return Response(serializer.data, status=status.HTTP_200_OK)
+
+            return</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\publicacao.py (Line 89:21 - Line 95:8), backend\dama\api\view\usuario.py (Line 34:19 - Line 38:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn5" onclick="toggleCodeBlock('cloneGroup5', 'expandBtn5', 'collapseBtn5')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn5" onclick="toggleCodeBlock('cloneGroup5', 'expandBtn5', 'collapseBtn5')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup5"><code class="language-python text-sm text-gray-800">)
+
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+    def destroy</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 15:21 - Line 22:29), backend\dama\api\view\publicacao.py (Line 19:21 - Line 26:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn6" onclick="toggleCodeBlock('cloneGroup6', 'expandBtn6', 'collapseBtn6')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn6" onclick="toggleCodeBlock('cloneGroup6', 'expandBtn6', 'collapseBtn6')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup6"><code class="language-python text-sm text-gray-800">()
+
+    def get_permissions(self):
+        return self.permission_strategy.get_permissions(self.action)
+
+    def create(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 25:23 - Line 33:10), backend\dama\api\view\usuario.py (Line 22:18 - Line 36:11)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn7" onclick="toggleCodeBlock('cloneGroup7', 'expandBtn7', 'collapseBtn7')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn7" onclick="toggleCodeBlock('cloneGroup7', 'expandBtn7', 'collapseBtn7')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup7"><code class="language-python text-sm text-gray-800">(data=request.data)
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        except Exception</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 29:17 - Line 36:9), backend\dama\api\view\publicacao.py (Line 87:12 - Line 38:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn8" onclick="toggleCodeBlock('cloneGroup8', 'expandBtn8', 'collapseBtn8')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn8" onclick="toggleCodeBlock('cloneGroup8', 'expandBtn8', 'collapseBtn8')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup8"><code class="language-python text-sm text-gray-800">)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    def retrieve</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 47:24 - Line 53:29), backend\dama\api\view\usuario.py (Line 34:24 - Line 40:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn9" onclick="toggleCodeBlock('cloneGroup9', 'expandBtn9', 'collapseBtn9')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn9" onclick="toggleCodeBlock('cloneGroup9', 'expandBtn9', 'collapseBtn9')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup9"><code class="language-python text-sm text-gray-800">}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def list(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 51:5 - Line 56:19), backend\dama\api\view\profissional.py (Line 36:9 - Line 41:20)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn10" onclick="toggleCodeBlock('cloneGroup10', 'expandBtn10', 'collapseBtn10')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn10" onclick="toggleCodeBlock('cloneGroup10', 'expandBtn10', 'collapseBtn10')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup10"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário
+            self.usuario_strategy.validar_usuario(request)
+
+            # Lista os objetos</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 59:33 - Line 69:29), backend\dama\api\view\usuario.py (Line 42:28 - Line 50:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn11" onclick="toggleCodeBlock('cloneGroup11', 'expandBtn11', 'collapseBtn11')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn11" onclick="toggleCodeBlock('cloneGroup11', 'expandBtn11', 'collapseBtn11')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup11"><code class="language-python text-sm text-gray-800">}, status=status.HTTP_404_NOT_FOUND)
+            
+            serializer = self.get_serializer(itens, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 67:15 - Line 72:3), backend\dama\api\view\profissional.py (Line 36:9 - Line 41:20)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn12" onclick="toggleCodeBlock('cloneGroup12', 'expandBtn12', 'collapseBtn12')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn12" onclick="toggleCodeBlock('cloneGroup12', 'expandBtn12', 'collapseBtn12')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup12"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário
+            self.usuario_strategy.validar_usuario(request)
+
+            if</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 87:8 - Line 95:51), backend\dama\api\view\profissional.py (Line 36:9 - Line 75:33)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn13" onclick="toggleCodeBlock('cloneGroup13', 'expandBtn13', 'collapseBtn13')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn13" onclick="toggleCodeBlock('cloneGroup13', 'expandBtn13', 'collapseBtn13')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup13"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            # Valida o perfil do usuário
+            self.usuario_strategy.validar_usuario(request)
+
+            if 'username' in request.data:
+                item = get_object_or_404(Profissional, user__username=request.data.get(&quot;username&quot;))
+
+                # Verifica se o usuário tem permissão para deletar</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\profissional.py (Line 100:19 - Line 105:2), backend\dama\api\view\profissional.py (Line 80:21 - Line 85:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn14" onclick="toggleCodeBlock('cloneGroup14', 'expandBtn14', 'collapseBtn14')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn14" onclick="toggleCodeBlock('cloneGroup14', 'expandBtn14', 'collapseBtn14')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup14"><code class="language-python text-sm text-gray-800">)
+
+            return Response({&quot;erro&quot;: &quot;Campos obrigatórios ausentes na requisição&quot;}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        except Exception as e:
+            return Response({'erro': 'Problema na API'}, status=status.HTTP_404_NOT_FOUND)</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\ong.py (Line 25:14 - Line 31:7), backend\dama\api\view\usuario.py (Line 22:18 - Line 92:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn15" onclick="toggleCodeBlock('cloneGroup15', 'expandBtn15', 'collapseBtn15')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn15" onclick="toggleCodeBlock('cloneGroup15', 'expandBtn15', 'collapseBtn15')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup15"><code class="language-python text-sm text-gray-800">(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'erro'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\ong.py (Line 47:5 - Line 52:17), backend\dama\api\view\ong.py (Line 33:9 - Line 38:21)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn16" onclick="toggleCodeBlock('cloneGroup16', 'expandBtn16', 'collapseBtn16')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn16" onclick="toggleCodeBlock('cloneGroup16', 'expandBtn16', 'collapseBtn16')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup16"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            # Validar o usuário via Strategy
+            self.usuario_strategy.validar_usuario(request)
+            
+            # Listar objetos</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\ong.py (Line 67:13 - Line 72:7), backend\dama\api\view\usuario.py (Line 52:17 - Line 82:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn17" onclick="toggleCodeBlock('cloneGroup17', 'expandBtn17', 'collapseBtn17')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn17" onclick="toggleCodeBlock('cloneGroup17', 'expandBtn17', 'collapseBtn17')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup17"><code class="language-python text-sm text-gray-800">serializer = self.get_serializer(item, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\ong.py (Line 70:18 - Line 75:8), backend\dama\api\view\publicacao.py (Line 87:12 - Line 33:9)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn18" onclick="toggleCodeBlock('cloneGroup18', 'expandBtn18', 'collapseBtn18')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn18" onclick="toggleCodeBlock('cloneGroup18', 'expandBtn18', 'collapseBtn18')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup18"><code class="language-python text-sm text-gray-800">)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def destroy</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\ong.py (Line 75:8 - Line 80:19), backend\dama\api\view\ong.py (Line 61:15 - Line 66:19)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn19" onclick="toggleCodeBlock('cloneGroup19', 'expandBtn19', 'collapseBtn19')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn19" onclick="toggleCodeBlock('cloneGroup19', 'expandBtn19', 'collapseBtn19')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup19"><code class="language-python text-sm text-gray-800">(self, request, *args, **kwargs):
+        try:
+            # Validar o usuário via Strategy
+            item = self.usuario_strategy.validar_usuario(request)
+            
+            # Deletar o objeto</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\entidade.py (Line 1:1 - Line 6:8), backend\dama\api\view\profissional.py (Line 1:1 - Line 6:11)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn20" onclick="toggleCodeBlock('cloneGroup20', 'expandBtn20', 'collapseBtn20')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn20" onclick="toggleCodeBlock('cloneGroup20', 'expandBtn20', 'collapseBtn20')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup20"><code class="language-python text-sm text-gray-800">from django.http import Http404
+from rest_framework import status
+from rest_framework import viewsets
+from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from api.filters</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\entidade.py (Line 20:19 - Line 29:19), backend\dama\api\view\publicacao.py (Line 19:21 - Line 28:21)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn21" onclick="toggleCodeBlock('cloneGroup21', 'expandBtn21', 'collapseBtn21')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn21" onclick="toggleCodeBlock('cloneGroup21', 'expandBtn21', 'collapseBtn21')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup21"><code class="language-python text-sm text-gray-800">()
+
+    def get_permissions(self):
+        return self.permission_strategy.get_permissions(self.action)
+
+    def create(self, request, *args, **kwargs):
+        try:
+            self.permission_strategy.validar(request.user)  # Correção
+
+            serializer = EntidadeSerializer</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\entidade.py (Line 29:19 - Line 62:30), backend\dama\api\view\usuario.py (Line 22:18 - Line 61:32)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn22" onclick="toggleCodeBlock('cloneGroup22', 'expandBtn22', 'collapseBtn22')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn22" onclick="toggleCodeBlock('cloneGroup22', 'expandBtn22', 'collapseBtn22')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup22"><code class="language-python text-sm text-gray-800">(data=request.data)
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except ValueError as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            item = self.get_object()
+
+            serializer = self.get_serializer(item)
+
+            return Response(serializer.data)
+        
+        except Http404:
+            return Response({'erro': 'objeto não encontrado'}, status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+    def list(self, request, *args, **kwargs):
+        try:
+            itens = self.filter_queryset(self.get_queryset())
+
+            if not itens.exists():
+                return Response({'messagem': 'Nenhuma entidade foi achada'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\entidade.py (Line 62:30 - Line 76:2), backend\dama\api\view\usuario.py (Line 42:28 - Line 78:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn23" onclick="toggleCodeBlock('cloneGroup23', 'expandBtn23', 'collapseBtn23')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn23" onclick="toggleCodeBlock('cloneGroup23', 'expandBtn23', 'collapseBtn23')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup23"><code class="language-python text-sm text-gray-800">}, status=status.HTTP_404_NOT_FOUND)
+            
+            serializer = self.get_serializer(itens, many=True)
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            item = self.get_object()
+
+            serializer = self.get_serializer(item, data=request.data, partial=True)</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\entidade.py (Line 74:2 - Line 92:9), backend\dama\api\view\usuario.py (Line 51:2 - Line 98:11)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn24" onclick="toggleCodeBlock('cloneGroup24', 'expandBtn24', 'collapseBtn24')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn24" onclick="toggleCodeBlock('cloneGroup24', 'expandBtn24', 'collapseBtn24')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup24"><code class="language-python text-sm text-gray-800">)
+
+            serializer = self.get_serializer(item, data=request.data, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+
+                return Response(serializer.data, status=status.HTTP_200_OK)
+
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
+            return Response({&quot;erro&quot;: str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+
+    def destroy(self, request, *args, **kwargs):
+        try:
+            if 'id' in request.data:
+                item = get_object_or_404(Entidade</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\view\auth.py (Line 51:23 - Line 58:7), backend\dama\api\view\auth.py (Line 39:14 - Line 47:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn25" onclick="toggleCodeBlock('cloneGroup25', 'expandBtn25', 'collapseBtn25')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn25" onclick="toggleCodeBlock('cloneGroup25', 'expandBtn25', 'collapseBtn25')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup25"><code class="language-python text-sm text-gray-800">(usuario_data).data
+                    del usuario_response['user']
+
+                    if usuario_response['bio'] is None:
+                        usuario_response['bio'] = &quot;vazio&quot;
+                    response_data['dados_usuario'] = usuario_response
+
+            return</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_profissional.py (Line 30:20 - Line 35:27), backend\dama\api\tests\test_publicacao.py (Line 24:18 - Line 29:25)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn26" onclick="toggleCodeBlock('cloneGroup26', 'expandBtn26', 'collapseBtn26')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn26" onclick="toggleCodeBlock('cloneGroup26', 'expandBtn26', 'collapseBtn26')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup26"><code class="language-python text-sm text-gray-800">)
+        response = api_client.get(url)
+        assert response.status_code == 200
+        assert len(response.data) &gt;= 1
+
+    def test_retrieve_profissional</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_login.py (Line 26:9 - Line 33:12), backend\dama\api\tests\test_login.py (Line 10:9 - Line 17:9)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn27" onclick="toggleCodeBlock('cloneGroup27', 'expandBtn27', 'collapseBtn27')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn27" onclick="toggleCodeBlock('cloneGroup27', 'expandBtn27', 'collapseBtn27')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup27"><code class="language-python text-sm text-gray-800">username = &quot;userlogin&quot;
+        password = &quot;strongpassword123&quot;
+        create_user(username=username, password=password, perfil='pro')
+
+        url = reverse('login')
+        data = {
+            &quot;username&quot;: username,
+            &quot;password&quot;: &quot;wrongpass&quot;</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_login.py (Line 46:9 - Line 51:20), backend\dama\api\tests\test_publicacao.py (Line 15:9 - Line 41:24)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn28" onclick="toggleCodeBlock('cloneGroup28', 'expandBtn28', 'collapseBtn28')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn28" onclick="toggleCodeBlock('cloneGroup28', 'expandBtn28', 'collapseBtn28')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup28"><code class="language-python text-sm text-gray-800">}
+        response = api_client.post(url, data, format='json')
+        assert response.status_code == 400 or response.status_code == 401
+        assert &quot;token&quot; not in response.data
+
+    def test_logout_success</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_administrador.py (Line 28:17 - Line 35:7), backend\dama\api\tests\test_administrador.py (Line 15:17 - Line 38:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn29" onclick="toggleCodeBlock('cloneGroup29', 'expandBtn29', 'collapseBtn29')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn29" onclick="toggleCodeBlock('cloneGroup29', 'expandBtn29', 'collapseBtn29')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup29"><code class="language-python text-sm text-gray-800">&quot;email&quot;: &quot;admin2@test.com&quot;,
+                &quot;perfil&quot;: &quot;admin&quot;,
+                &quot;password&quot;: &quot;pass1234&quot;
+            }
+        }
+        response = api_client.post(url, data, format='json')
+        assert response.status_code == 400
+        assert</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_administrador.py (Line 90:13 - Line 95:4), backend\dama\api\tests\test_administrador.py (Line 77:13 - Line 55:4)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn30" onclick="toggleCodeBlock('cloneGroup30', 'expandBtn30', 'collapseBtn30')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn30" onclick="toggleCodeBlock('cloneGroup30', 'expandBtn30', 'collapseBtn30')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup30"><code class="language-python text-sm text-gray-800">&quot;user&quot;: {
+                &quot;email&quot;: &quot;novoemail@test.com&quot;
+            }
+        }
+        response = api_client.patch(url, data, format='json')
+        assert response.status_code == 406</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\tests\test_administrador.py (Line 98:21 - Line 104:2), backend\dama\api\tests\test_administrador.py (Line 71:28 - Line 76:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn31" onclick="toggleCodeBlock('cloneGroup31', 'expandBtn31', 'collapseBtn31')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn31" onclick="toggleCodeBlock('cloneGroup31', 'expandBtn31', 'collapseBtn31')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup31"><code class="language-python text-sm text-gray-800">(self, api_client, admin_user):
+        user, admin = admin_user
+        api_client.force_authenticate(user=user)
+        url = reverse('administrador-list')
+        data = {
+            &quot;username&quot;: user.username
+        }</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\strategies\strategy_permissions.py (Line 26:19 - Line 34:3), backend\dama\api\strategies\strategy_permissions.py (Line 15:21 - Line 23:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn32" onclick="toggleCodeBlock('cloneGroup32', 'expandBtn32', 'collapseBtn32')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn32" onclick="toggleCodeBlock('cloneGroup32', 'expandBtn32', 'collapseBtn32')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup32"><code class="language-python text-sm text-gray-800">(PermissaoStrategy):
+
+    def get_permissions(self, action):
+        if action in ['create', 'partial_update', 'destroy']:
+            return [IsAuthenticated()]
+        return [AllowAny()]
+    
+    def validar(self, user):
+        if user.perfil !=</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\serializer\ong.py (Line 10:10 - Line 19:4), backend\dama\api\serializer\profissional.py (Line 10:7 - Line 19:13)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn33" onclick="toggleCodeBlock('cloneGroup33', 'expandBtn33', 'collapseBtn33')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn33" onclick="toggleCodeBlock('cloneGroup33', 'expandBtn33', 'collapseBtn33')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup33"><code class="language-python text-sm text-gray-800">, 'bio']
+        extra_kwargs = {'password' : {'write_only': True}}
+        
+    def create(self, validated_data):
+        usuario_data = validated_data.pop('user')
+        usuario_serializer = UsuarioSerializer(data=usuario_data)
+        usuario_serializer.is_valid(raise_exception=True)
+        novo_usuario = usuario_serializer.save()
+
+        ong</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\permissions\todos.py (Line 17:7 - Line 22:7), backend\dama\api\permissions\todos.py (Line 6:6 - Line 11:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn34" onclick="toggleCodeBlock('cloneGroup34', 'expandBtn34', 'collapseBtn34')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn34" onclick="toggleCodeBlock('cloneGroup34', 'expandBtn34', 'collapseBtn34')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup34"><code class="language-python text-sm text-gray-800">:
+            return True
+        return False
+
+    def has_object_permission(self, request, view, obj):
+        if request.method == 'POST'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\permissions\todos.py (Line 28:8 - Line 33:6), backend\dama\api\permissions\todos.py (Line 6:6 - Line 11:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn35" onclick="toggleCodeBlock('cloneGroup35', 'expandBtn35', 'collapseBtn35')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn35" onclick="toggleCodeBlock('cloneGroup35', 'expandBtn35', 'collapseBtn35')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup35"><code class="language-python text-sm text-gray-800">:
+            return True
+        return False
+
+    def has_object_permission(self, request, view, obj):
+        if request.method == 'PUT'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\permissions\todos.py (Line 39:9 - Line 44:9), backend\dama\api\permissions\todos.py (Line 6:6 - Line 11:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn36" onclick="toggleCodeBlock('cloneGroup36', 'expandBtn36', 'collapseBtn36')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn36" onclick="toggleCodeBlock('cloneGroup36', 'expandBtn36', 'collapseBtn36')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup36"><code class="language-python text-sm text-gray-800">:
+            return True
+        return False
+
+    def has_object_permission(self, request, view, obj):
+        if request.method == 'DELETE'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\models\publicacao.py (Line 7:5 - Line 13:5), backend\dama\api\models\usuario.py (Line 13:5 - Line 19:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn37" onclick="toggleCodeBlock('cloneGroup37', 'expandBtn37', 'collapseBtn37')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn37" onclick="toggleCodeBlock('cloneGroup37', 'expandBtn37', 'collapseBtn37')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup37"><code class="language-python text-sm text-gray-800">STATUS = (
+        ('sub', 'Analise'),
+        ('ok', 'Aprovada'),
+        ('del', 'Deletada'),
+    )
+
+    TAGS</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0004_alter_publicacao_imagem_publicacao.py (Line 3:1 - Line 9:42), backend\dama\api\migrations\0005_entidade.py (Line 3:1 - Line 9:42)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn38" onclick="toggleCodeBlock('cloneGroup38', 'expandBtn38', 'collapseBtn38')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn38" onclick="toggleCodeBlock('cloneGroup38', 'expandBtn38', 'collapseBtn38')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup38"><code class="language-python text-sm text-gray-800">from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('api', '0003_alter_publicacao_imagem_publicacao'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0003_alter_publicacao_imagem_publicacao.py (Line 3:1 - Line 9:32), backend\dama\api\migrations\0005_entidade.py (Line 3:1 - Line 9:42)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn39" onclick="toggleCodeBlock('cloneGroup39', 'expandBtn39', 'collapseBtn39')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn39" onclick="toggleCodeBlock('cloneGroup39', 'expandBtn39', 'collapseBtn39')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup39"><code class="language-python text-sm text-gray-800">from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('api', '0002_publicacao_delete_relato'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0003_alter_publicacao_imagem_publicacao.py (Line 9:32 - Line 16:8), backend\dama\api\migrations\0004_alter_publicacao_imagem_publicacao.py (Line 9:42 - Line 16:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn40" onclick="toggleCodeBlock('cloneGroup40', 'expandBtn40', 'collapseBtn40')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn40" onclick="toggleCodeBlock('cloneGroup40', 'expandBtn40', 'collapseBtn40')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup40"><code class="language-python text-sm text-gray-800">),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='publicacao',
+            name='imagem_publicacao',
+            field=models.ImageField(blank=True, default='media/dama.png', null=True, upload_to='media'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0002_publicacao_delete_relato.py (Line 6:1 - Line 12:15), backend\dama\api\migrations\0005_entidade.py (Line 3:1 - Line 9:42)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn41" onclick="toggleCodeBlock('cloneGroup41', 'expandBtn41', 'collapseBtn41')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn41" onclick="toggleCodeBlock('cloneGroup41', 'expandBtn41', 'collapseBtn41')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup41"><code class="language-python text-sm text-gray-800">from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('api', '0001_initial'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0001_initial.py (Line 7:1 - Line 14:8), backend\dama\api\migrations\0002_publicacao_delete_relato.py (Line 4:1 - Line 11:13)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn42" onclick="toggleCodeBlock('cloneGroup42', 'expandBtn42', 'collapseBtn42')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn42" onclick="toggleCodeBlock('cloneGroup42', 'expandBtn42', 'collapseBtn42')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup42"><code class="language-python text-sm text-gray-800">import uuid
+from django.conf import settings
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    initial</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\migrations\0001_initial.py (Line 80:9 - Line 85:9), backend\dama\api\migrations\0002_publicacao_delete_relato.py (Line 17:13 - Line 22:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn43" onclick="toggleCodeBlock('cloneGroup43', 'expandBtn43', 'collapseBtn43')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn43" onclick="toggleCodeBlock('cloneGroup43', 'expandBtn43', 'collapseBtn43')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup43"><code class="language-python text-sm text-gray-800">,
+            fields=[
+                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('conteudo', models.TextField()),
+                ('data_criacao', models.DateTimeField(auto_now_add=True)),
+                ('status'</code></pre></div><div class="py-4"><p class="text-gray-600">backend\dama\api\admin\ong.py (Line 9:7 - Line 33:9), backend\dama\api\admin\profissional.py (Line 9:11 - Line 33:9)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn44" onclick="toggleCodeBlock('cloneGroup44', 'expandBtn44', 'collapseBtn44')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn44" onclick="toggleCodeBlock('cloneGroup44', 'expandBtn44', 'collapseBtn44')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup44"><code class="language-python text-sm text-gray-800">, &quot;user__status&quot;)  
+
+    def get_username(self, objeto):
+        if objeto.user:
+            return objeto.user.username
+        else:
+            return &quot;sem username&quot;
+        
+    def get_email(self, objeto):
+        if objeto.user:
+            return objeto.user.email
+        else:
+            return &quot;sem email&quot;
+    
+    def get_status(self, objeto):
+        if objeto.user:
+            return objeto.user.status
+        else:
+            return &quot;sem status&quot;
+    
+    get_username.short_description = &quot;Usuário&quot;
+
+    get_email.short_description = &quot;E-mail&quot;
+
+    get_status.short_description = &quot;Status&quot;</code></pre></div><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div><a name="json-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">json</h2><div class="divide-y divide-gray-200 border-b-2"><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div><a name="markdown-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">markdown</h2><div class="divide-y divide-gray-200 border-b-2"><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div><a name="typescript-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">typescript</h2><div class="divide-y divide-gray-200 border-b-2"><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relato-detalhe\relato-detalhe.component.ts (Line 35:3 - Line 40:2), frontend\dama\src\app\relatos\relatos.component.ts (Line 49:3 - Line 56:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn47" onclick="toggleCodeBlock('cloneGroup47', 'expandBtn47', 'collapseBtn47')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn47" onclick="toggleCodeBlock('cloneGroup47', 'expandBtn47', 'collapseBtn47')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup47"><code class="language-typescript text-sm text-gray-800">}
+
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html)
+  }
+}</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relato\relato.component.ts (Line 61:5 - Line 67:7), frontend\dama\src\app\relato\relato.component.ts (Line 37:5 - Line 43:5)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn48" onclick="toggleCodeBlock('cloneGroup48', 'expandBtn48', 'collapseBtn48')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn48" onclick="toggleCodeBlock('cloneGroup48', 'expandBtn48', 'collapseBtn48')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup48"><code class="language-typescript text-sm text-gray-800">const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = this.relato.conteudo;
+    const textContent = tempDiv.textContent?.trim() || '';
+
+    if (!textContent) {
+      this.mensagem = 'O conteúdo do relato não pode estar vazio.'
+      return</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\material\material.component.spec.ts (Line 15:18 - Line 23:2), frontend\dama\src\app\components\header\header.component.spec.ts (Line 15:16 - Line 23:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn60" onclick="toggleCodeBlock('cloneGroup60', 'expandBtn60', 'collapseBtn60')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn60" onclick="toggleCodeBlock('cloneGroup60', 'expandBtn60', 'collapseBtn60')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup60"><code class="language-typescript text-sm text-gray-800">);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.spec.ts (Line 15:15 - Line 23:2), frontend\dama\src\app\components\header\header.component.spec.ts (Line 15:16 - Line 23:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn62" onclick="toggleCodeBlock('cloneGroup62', 'expandBtn62', 'collapseBtn62')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn62" onclick="toggleCodeBlock('cloneGroup62', 'expandBtn62', 'collapseBtn62')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup62"><code class="language-typescript text-sm text-gray-800">);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\delete\delete.component.spec.ts (Line 15:16 - Line 23:2), frontend\dama\src\app\components\header\header.component.spec.ts (Line 15:16 - Line 23:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn69" onclick="toggleCodeBlock('cloneGroup69', 'expandBtn69', 'collapseBtn69')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn69" onclick="toggleCodeBlock('cloneGroup69', 'expandBtn69', 'collapseBtn69')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup69"><code class="language-typescript text-sm text-gray-800">);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.ts (Line 24:3 - Line 29:5), frontend\dama\src\app\delete\delete.component.ts (Line 13:3 - Line 18:4)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn70" onclick="toggleCodeBlock('cloneGroup70', 'expandBtn70', 'collapseBtn70')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn70" onclick="toggleCodeBlock('cloneGroup70', 'expandBtn70', 'collapseBtn70')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup70"><code class="language-typescript text-sm text-gray-800">profissional: Profissional = {
+    nome_completo: '',
+    cpf: '',
+    conselho: '',
+    contato: '',
+    user</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.ts (Line 28:8 - Line 33:6), frontend\dama\src\app\delete\delete.component.ts (Line 18:4 - Line 23:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn71" onclick="toggleCodeBlock('cloneGroup71', 'expandBtn71', 'collapseBtn71')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn71" onclick="toggleCodeBlock('cloneGroup71', 'expandBtn71', 'collapseBtn71')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup71"><code class="language-typescript text-sm text-gray-800">: '',
+    user: {
+      password: '',
+      username: '',
+      email: '',
+      perfil: 'pro'</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.ts (Line 40:5 - Line 46:6), frontend\dama\src\app\cadastro\cadastro.component.ts (Line 27:9 - Line 23:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn72" onclick="toggleCodeBlock('cloneGroup72', 'expandBtn72', 'collapseBtn72')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn72" onclick="toggleCodeBlock('cloneGroup72', 'expandBtn72', 'collapseBtn72')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup72"><code class="language-typescript text-sm text-gray-800">: '',
+    contato: '',
+    user: {
+      password: '',
+      username: '',
+      email: '',
+      perfil: 'ong'</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.spec.ts (Line 15:18 - Line 23:2), frontend\dama\src\app\components\header\header.component.spec.ts (Line 15:16 - Line 23:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn73" onclick="toggleCodeBlock('cloneGroup73', 'expandBtn73', 'collapseBtn73')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn73" onclick="toggleCodeBlock('cloneGroup73', 'expandBtn73', 'collapseBtn73')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup73"><code class="language-typescript text-sm text-gray-800">);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\atualizar\atualizar.component.spec.ts (Line 15:19 - Line 23:2), frontend\dama\src\app\components\header\header.component.spec.ts (Line 15:16 - Line 23:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn77" onclick="toggleCodeBlock('cloneGroup77', 'expandBtn77', 'collapseBtn77')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn77" onclick="toggleCodeBlock('cloneGroup77', 'expandBtn77', 'collapseBtn77')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup77"><code class="language-typescript text-sm text-gray-800">);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () =&gt; {
+    expect(component).toBeTruthy();
+  });
+});</code></pre></div><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div><a name="markup-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">markup</h2><div class="divide-y divide-gray-200 border-b-2"><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 106:4 - Line 112:126), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 94:2 - Line 99:164)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn52" onclick="toggleCodeBlock('cloneGroup52', 'expandBtn52', 'collapseBtn52')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn52" onclick="toggleCodeBlock('cloneGroup52', 'expandBtn52', 'collapseBtn52')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup52"><code class="language-markup text-sm text-gray-800">&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Natal&lt;/h1&gt;
+      
+      &lt;div class=&quot;info-row&quot;&gt;
+        &lt;a class=&quot;label&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=R.%20do%20Saneamento%2C%2028%20-%20Ribeira%2C%20Natal%20-%20RN%2C%2059012-410</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 117:11 - Line 125:146), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 99:164)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn53" onclick="toggleCodeBlock('cloneGroup53', 'expandBtn53', 'collapseBtn53')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn53" onclick="toggleCodeBlock('cloneGroup53', 'expandBtn53', 'collapseBtn53')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup53"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Natal &lt;/h1&gt;
+      
+      &lt;div class=&quot;info-row&quot;&gt;
+        &lt;a class=&quot;label&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=R.%20Nossa%20Sra.%20de%20Candel%C3%A1ria%20-%20Candel%C3%A1ria%2C%20Natal%20-%20RN%2C%2059065-490</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 130:10 - Line 138:133), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 99:164)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn54" onclick="toggleCodeBlock('cloneGroup54', 'expandBtn54', 'collapseBtn54')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn54" onclick="toggleCodeBlock('cloneGroup54', 'expandBtn54', 'collapseBtn54')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup54"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Natal &lt;/h1&gt;
+      
+      &lt;div class=&quot;info-row&quot;&gt;
+        &lt;a class=&quot;label&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=Av.%20Hermes%20da%20Fonseca%2C%201174%20-%20Tirol%2C%20Natal%20-%20RN%2C%2059020-315</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 143:2 - Line 151:123), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 99:164)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn55" onclick="toggleCodeBlock('cloneGroup55', 'expandBtn55', 'collapseBtn55')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn55" onclick="toggleCodeBlock('cloneGroup55', 'expandBtn55', 'collapseBtn55')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup55"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Natal &lt;/h1&gt;
+      
+      &lt;div class=&quot;info-row&quot;&gt;
+        &lt;a class=&quot;label&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=Av.%20Guadalupe%2C%202145%20-%20Potengi%2C%20Natal%20-%20RN%2C%2059112-560</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 156:11 - Line 164:149), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 99:164)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn56" onclick="toggleCodeBlock('cloneGroup56', 'expandBtn56', 'collapseBtn56')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn56" onclick="toggleCodeBlock('cloneGroup56', 'expandBtn56', 'collapseBtn56')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup56"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Natal&lt;/h1&gt;
+      
+      &lt;div class=&quot;info-row&quot;&gt;
+        &lt;a class=&quot;label&quot; href=&quot;https://www.google.com/maps/search/?api=1&amp;query=Av.%20Dr.%20Jo%C3%A3o%20Medeiros%20Filho%2C%20S%2FN%20-%20Potengi%2C%20Natal%20-%20RN%2C%2059110-200</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 169:11 - Line 174:11), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 96:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn57" onclick="toggleCodeBlock('cloneGroup57', 'expandBtn57', 'collapseBtn57')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn57" onclick="toggleCodeBlock('cloneGroup57', 'expandBtn57', 'collapseBtn57')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup57"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Parnamirim</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 182:12 - Line 188:3), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 89:11 - Line 93:3)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn58" onclick="toggleCodeBlock('cloneGroup58', 'expandBtn58', 'collapseBtn58')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn58" onclick="toggleCodeBlock('cloneGroup58', 'expandBtn58', 'collapseBtn58')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup58"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+
+  &lt;h1&gt;Delegacia Especializada de Atendimento à Mulher no</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 199:10 - Line 204:6), frontend\dama\src\app\redeapoio\redeapoio.component.html (Line 104:12 - Line 96:6)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn59" onclick="toggleCodeBlock('cloneGroup59', 'expandBtn59', 'collapseBtn59')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn59" onclick="toggleCodeBlock('cloneGroup59', 'expandBtn59', 'collapseBtn59')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup59"><code class="language-markup text-sm text-gray-800">&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card&quot;&gt;
+      &lt;h1 class=&quot;title&quot;&gt;Delegacia Especializada de Atendimento à Mulher em Caicó</code></pre></div><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div><a name="css-clones"></a><h2 class="text-2xl font-semibold text-gray-700 mb-4">css</h2><div class="divide-y divide-gray-200 border-b-2"><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\components\header\header.component.css (Line 104:8 - Line 115:2), frontend\dama\src\app\components\header\header.component.css (Line 91:2 - Line 102:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn45" onclick="toggleCodeBlock('cloneGroup45', 'expandBtn45', 'collapseBtn45')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn45" onclick="toggleCodeBlock('cloneGroup45', 'expandBtn45', 'collapseBtn45')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup45"><code class="language-css text-sm text-gray-800">;
+    border: none;
+    padding: 5px 15px;
+    margin: 4px 2px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relatos\relatos.component.css (Line 65:5 - Line 72:13), frontend\dama\src\app\components\header\header.component.css (Line 97:6 - Line 103:13)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn46" onclick="toggleCodeBlock('cloneGroup46', 'expandBtn46', 'collapseBtn46')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn46" onclick="toggleCodeBlock('cloneGroup46', 'expandBtn46', 'collapseBtn46')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup46"><code class="language-css text-sm text-gray-800">;
+    cursor: pointer;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relato\relato.component.css (Line 95:2 - Line 109:17), frontend\dama\src\app\relatos\relatos.component.css (Line 56:4 - Line 102:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn49" onclick="toggleCodeBlock('cloneGroup49', 'expandBtn49', 'collapseBtn49')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn49" onclick="toggleCodeBlock('cloneGroup49', 'expandBtn49', 'collapseBtn49')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup49"><code class="language-css text-sm text-gray-800">);
+    border: none;
+    padding: 1em 2em;
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relato\relato.component.css (Line 112:2 - Line 117:21), frontend\dama\src\app\relatos\relatos.component.css (Line 72:2 - Line 77:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn50" onclick="toggleCodeBlock('cloneGroup50', 'expandBtn50', 'collapseBtn50')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn50" onclick="toggleCodeBlock('cloneGroup50', 'expandBtn50', 'collapseBtn50')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup50"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#relatoButton:active</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\relato\relato.component.css (Line 117:2 - Line 122:8), frontend\dama\src\app\relatos\relatos.component.css (Line 77:2 - Line 82:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn51" onclick="toggleCodeBlock('cloneGroup51', 'expandBtn51', 'collapseBtn51')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn51" onclick="toggleCodeBlock('cloneGroup51', 'expandBtn51', 'collapseBtn51')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup51"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.borda1</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\login\login.component.css (Line 70:4 - Line 76:2), frontend\dama\src\app\relatos\relatos.component.css (Line 68:2 - Line 74:11)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn61" onclick="toggleCodeBlock('cloneGroup61', 'expandBtn61', 'collapseBtn61')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn61" onclick="toggleCodeBlock('cloneGroup61', 'expandBtn61', 'collapseBtn61')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup61"><code class="language-css text-sm text-gray-800">;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgba(255, 100, 100, 1);
+  }</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 84:2 - Line 90:20), frontend\dama\src\app\relatos\relatos.component.css (Line 72:2 - Line 77:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn63" onclick="toggleCodeBlock('cloneGroup63', 'expandBtn63', 'collapseBtn63')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn63" onclick="toggleCodeBlock('cloneGroup63', 'expandBtn63', 'collapseBtn63')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup63"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button-main:active</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 90:2 - Line 95:22), frontend\dama\src\app\relatos\relatos.component.css (Line 77:2 - Line 82:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn64" onclick="toggleCodeBlock('cloneGroup64', 'expandBtn64', 'collapseBtn64')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn64" onclick="toggleCodeBlock('cloneGroup64', 'expandBtn64', 'collapseBtn64')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup64"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.main-div1-div-bottom</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 142:21 - Line 148:11), frontend\dama\src\app\index\index.component.css (Line 39:21 - Line 45:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn65" onclick="toggleCodeBlock('cloneGroup65', 'expandBtn65', 'collapseBtn65')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn65" onclick="toggleCodeBlock('cloneGroup65', 'expandBtn65', 'collapseBtn65')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup65"><code class="language-css text-sm text-gray-800">{
+    height: 50%;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    margin-top</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 190:5 - Line 196:5), frontend\dama\src\app\components\header\header.component.css (Line 99:5 - Line 78:7)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn66" onclick="toggleCodeBlock('cloneGroup66', 'expandBtn66', 'collapseBtn66')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn66" onclick="toggleCodeBlock('cloneGroup66', 'expandBtn66', 'collapseBtn66')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup66"><code class="language-css text-sm text-gray-800">; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: none;
+
+    color: white;
+    font-size: 25px</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 205:2 - Line 211:25), frontend\dama\src\app\relatos\relatos.component.css (Line 72:2 - Line 77:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn67" onclick="toggleCodeBlock('cloneGroup67', 'expandBtn67', 'collapseBtn67')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn67" onclick="toggleCodeBlock('cloneGroup67', 'expandBtn67', 'collapseBtn67')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup67"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button-main-div2:active</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\index\index.component.css (Line 211:2 - Line 217:15), frontend\dama\src\app\relatos\relatos.component.css (Line 77:2 - Line 82:14)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn68" onclick="toggleCodeBlock('cloneGroup68', 'expandBtn68', 'collapseBtn68')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn68" onclick="toggleCodeBlock('cloneGroup68', 'expandBtn68', 'collapseBtn68')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup68"><code class="language-css text-sm text-gray-800">{
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/*  DIV2    */</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.css (Line 28:5 - Line 61:17), frontend\dama\src\app\login\login.component.css (Line 12:5 - Line 47:8)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn74" onclick="toggleCodeBlock('cloneGroup74', 'expandBtn74', 'collapseBtn74')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn74" onclick="toggleCodeBlock('cloneGroup74', 'expandBtn74', 'collapseBtn74')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup74"><code class="language-css text-sm text-gray-800">border-radius: 30px;
+    /* position: relative; */
+  }
+  
+  main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+  
+  .div-form {
+    height: auto;
+    width: auto;
+    border-radius: 28px; /* Ligeiramente menor que o main para evitar sobreposição */
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+
+
+form {
+    width: 100%;
+    height: 100%;
+    padding: 15px 70px;  
+    text-align: left;   
+    box-sizing: border-box;
+}
+
+.button-disabled</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.css (Line 89:5 - Line 108:10), frontend\dama\src\app\login\login.component.css (Line 63:5 - Line 82:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn75" onclick="toggleCodeBlock('cloneGroup75', 'expandBtn75', 'collapseBtn75')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn75" onclick="toggleCodeBlock('cloneGroup75', 'expandBtn75', 'collapseBtn75')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup75"><code class="language-css text-sm text-gray-800">background-color: rgba(255, 90, 90, 1);
+    border: none;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgba(255, 100, 100, 1);
+  }
+  
+  button:active {
+    opacity: 0.8;
+  }
+  
+  #submeter</code></pre></div><div class="py-4"><p class="text-gray-600">frontend\dama\src\app\cadastro\cadastro.component.css (Line 121:5 - Line 150:2), frontend\dama\src\app\login\login.component.css (Line 110:7 - Line 141:2)</p><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2" id="expandBtn76" onclick="toggleCodeBlock('cloneGroup76', 'expandBtn76', 'collapseBtn76')">Show code</button><button class="bg-gray-500 text-white px-1 py-0.5 text-xs rounded focus:outline-none ml-2 hidden" id="collapseBtn76" onclick="toggleCodeBlock('cloneGroup76', 'expandBtn76', 'collapseBtn76')">Hide code</button><pre class="bg-gray-100 border border-gray-200 p-4 rounded mt-2 hidden" id="cloneGroup76"><code class="language-css text-sm text-gray-800">;
+  }
+  
+  .mensagem {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(0, 128, 0, 0.1);
+    color: #006400;
+    text-align: center;
+    border: 1px solid rgba(0, 128, 0, 0.5);
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+
+  .alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .alert-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .alert-danger {
+    background-color: #dc3545;
+    color: white;
+  }</code></pre></div><!-- Add more clone groups for .txt format as needed         // Add more clone groups for .txt format as needed--></div></section><!-- Add more sections for other formats and clone groups as needed--></main><footer class="bg-white shadow mt-8 py-4"><div class="container mx-auto px-4 text-center"><p class="text-sm text-gray-600">This report is generated by jscpd, an open-source copy/paste detector.</p><p class="text-sm text-gray-600">jscpd is licensed under the MIT License.</p><a class="text-blue-500 text-sm" href="https://github.com/kucherenko/jscpd" target="_blank" rel="noopener noreferrer">View jscpd on GitHub</a></div></footer><script src="js/prism.js"></script><script>function toggleCodeBlock(codeBlockId, expandBtnId, collapseBtnId) {
+  const codeBlock = document.getElementById(codeBlockId);
+  const expandBtn = document.getElementById(expandBtnId);
+  const collapseBtn = document.getElementById(collapseBtnId);
+
+  codeBlock.classList.toggle('hidden');
+  expandBtn.classList.toggle('hidden');
+  collapseBtn.classList.toggle('hidden');
+}</script></body></html>

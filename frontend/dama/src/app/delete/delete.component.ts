@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { createDefaultProfissional } from '../shared/model-factories';
 import { Profissional } from '../services/cadastro.service';
 
 
@@ -10,17 +11,5 @@ import { Profissional } from '../services/cadastro.service';
     styleUrl: './delete.component.css'
 })
 export class DeleteComponent {
-  profissional: Profissional = {
-    nome_completo: '',
-    cpf: '',
-    conselho: '',
-    contato: '',
-    bio: '',
-    user: {
-      password: '',
-      username: '',
-      email: '',
-      perfil: ''
-    }
-  }
+  profissional: Profissional = createDefaultProfissional();
 }

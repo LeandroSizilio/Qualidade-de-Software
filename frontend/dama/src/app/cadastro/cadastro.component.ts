@@ -4,6 +4,7 @@ import { ValidadorCnpjService } from '../services/validador-cnpj.service'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { HeaderComponent } from '../components/header/header.component'
+import { createDefaultProfissional, createDefaultOng } from '../shared/model-factories'
 
 @Injectable({
   providedIn: 'root',
@@ -21,32 +22,9 @@ export class CadastroComponent {
 
   tipoCadastro: 'profissional' | 'ong' = 'profissional';
 
-  profissional: Profissional = {
-    nome_completo: '',
-    cpf: '',
-    conselho: '',
-    contato: '',
-    user: {
-      password: '',
-      username: '',
-      email: '',
-      perfil: 'pro',
-    },
-    bio: '',
-  }
+  profissional: Profissional = createDefaultProfissional();
 
-  ong: Ong = {
-    razao_social: '',
-    cnpj: '',
-    contato: '',
-    user: {
-      password: '',
-      username: '',
-      email: '',
-      perfil: 'ong',
-    },
-    bio: '',
-  }
+  ong: Ong = createDefaultOng();
 
   senhaRepetida = '';
   mensagem: string | null = null;

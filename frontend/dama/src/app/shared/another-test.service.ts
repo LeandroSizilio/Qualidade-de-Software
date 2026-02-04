@@ -1,23 +1,15 @@
 import { Injectable } from '@angular/core';
+import { DataProcessingUtils } from './data-processing-utils';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnotherTestService {
-  // Intentional duplicate code for testing jscpd detection
   calculateValue(x: number, y: number): number {
-    const result = x + y;
-    const doubled = result * 2;
-    const final = doubled + 100;
-    console.log('Calculating...', final);
-    return final;
+    return DataProcessingUtils.calculateValue(x, y);
   }
 
   processData(data: string): string {
-    const trimmed = data.trim();
-    const uppercase = trimmed.toUpperCase();
-    const result = uppercase + '_PROCESSED';
-    console.log('Processing...', result);
-    return result;
+    return DataProcessingUtils.processData(data);
   }
 }

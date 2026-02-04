@@ -44,9 +44,9 @@ export class RelatoComponent implements OnInit {
 
   relatoConfirmacao(): void {
     // Verifica se há conteúdo real, não apenas espaços em branco ou tags HTML vazias
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = this.relato.conteudo;
-    const textContent = tempDiv.textContent?.trim() || '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(this.relato.conteudo || '', 'text/html');
+    const textContent = doc.body.textContent?.trim() || '';
 
     if (!textContent) {
       this.mensagem = this.CONTEUDO_VAZIO_MSG;
@@ -63,13 +63,13 @@ export class RelatoComponent implements OnInit {
 
   updateRelatoContent(content: string) {
     this.relato.conteudo = content;
-    console.log('Conteúdo atualizado:', content); // Para debug
+    // conteúdo atualizado (sem logs de depuração)
   }
 
   enviaRelato(): void {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = this.relato.conteudo;
-    const textContent = tempDiv.textContent?.trim() || '';
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(this.relato.conteudo || '', 'text/html');
+    const textContent = doc.body.textContent?.trim() || '';
 
     if (!textContent) {
       this.mensagem = this.CONTEUDO_VAZIO_MSG;

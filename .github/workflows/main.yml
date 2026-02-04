@@ -149,7 +149,7 @@ jobs:
           java -jar "$PLANTUML_JAR" -verbose -o docs/uml docs/uml/*.puml
 
       - name: Upload UML artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: uml-diagrams
           path: frontend/dama/docs/uml

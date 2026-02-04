@@ -120,8 +120,7 @@ export class CadastroComponent {
 
   cadastrarProfissional() {
     this.cadastroService.registerProfissional(this.profissional).subscribe({
-      next: (response) => {
-        console.log('Profissional cadastrado:', response);
+      next: (_response) => {
         this.mostrarSucessoEVoltar(
           'Cadastro de profissional realizado com sucesso!',
         );
@@ -154,8 +153,7 @@ export class CadastroComponent {
 
   cadastrarOng() {
     this.cadastroService.registerOng(this.ong).subscribe({
-      next: (response) => {
-        console.log('ONG cadastrada:', response);
+      next: (_response) => {
         this.mostrarSucessoEVoltar('Cadastro de ONG realizado com sucesso!');
       },
       error: (_error) => {

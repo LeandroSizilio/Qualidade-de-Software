@@ -11,7 +11,6 @@ export class DataProcessingUtils {
     const result = x + y;
     const doubled = result * 2;
     const final = doubled + 100;
-    console.log('Calculating...', final);
     return final;
   }
 
@@ -22,7 +21,6 @@ export class DataProcessingUtils {
     const trimmed = data.trim();
     const uppercase = trimmed.toUpperCase();
     const result = uppercase + '_PROCESSED';
-    console.log('Processing...', result);
     return result;
   }
 }

@@ -92,126 +92,13 @@
   </div>
   <h1>Delegacia Especializada de Atendimento à Mulher em Natal e Região</h1>
   <div class="grid">
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal</h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Av.%20Capit%C3%A3o-Mor%20Gouveia%2C%201339%20-%20Nossa%20Sra.%20de%20Nazar%C3%A9%2C%20Natal%20-%20RN%2C%2059060-400" target="_blank" rel="noopener noreferrer">
-          Av. Capitão-Mor Gouveia, 1339 - Nossa Sra. de Nazaré, Natal - RN, 59060-400.
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 98135-8077.</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal</h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=R.%20do%20Saneamento%2C%2028%20-%20Ribeira%2C%20Natal%20-%20RN%2C%2059012-410" target="_blank" rel="noopener noreferrer">
-          R. do Saneamento, 28 - Ribeira, Natal - RN, 59012-410.
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 3232-2526.</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=R.%20Nossa%20Sra.%20de%20Candel%C3%A1ria%20-%20Candel%C3%A1ria%2C%20Natal%20-%20RN%2C%2059065-490" target="_blank" rel="noopener noreferrer">
-          R. Nossa Sra. de Candelária - Candelária, Natal - RN, 59065-490
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 3232-2530</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Av.%20Hermes%20da%20Fonseca%2C%201174%20-%20Tirol%2C%20Natal%20-%20RN%2C%2059020-315" target="_blank" rel="noopener noreferrer">
-          Av. Hermes da Fonseca, 1174 - Tirol, Natal - RN, 59020-315
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: </span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Av.%20Guadalupe%2C%202145%20-%20Potengi%2C%20Natal%20-%20RN%2C%2059112-560" target="_blank" rel="noopener noreferrer">
-          Av. Guadalupe, 2145 - Potengi, Natal - RN, 59112-560
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 98135-6792</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Natal</h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Av.%20Dr.%20Jo%C3%A3o%20Medeiros%20Filho%2C%20S%2FN%20-%20Potengi%2C%20Natal%20-%20RN%2C%2059110-200" target="_blank" rel="noopener noreferrer">
-          Av. Dr. João Medeiros Filho, S/N - Potengi, Natal - RN, 59110-200.
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 3232-5468.</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Parnamirim </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Av.%20Dr.%20%C3%81tila%20Paiva%2C%2069%20-%20Cohabinal%2C%20Parnamirim%20-%20RN%2C%2059140-700" target="_blank" rel="noopener noreferrer">
-          Av. Dr. Átila Paiva, 69 - Cohabinal, Parnamirim - RN, 59140-700
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 98123-4114.</span>
-      </div>
-    </div>
+      <app-delegacy-card *ngFor="let delegacy of natalDelegacies" [delegacy]="delegacy"></app-delegacy-card>
   </div>
 
 
   <h1>Delegacia Especializada de Atendimento à Mulher no interior do estado</h1>
   <div class="grid">
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Mossoró </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=R.%20Julita%20G.%20Sena%2C%20241%20-%20Nova%20Bet%C3%A2nia%2C%20Mossor%C3%B3%20-%20RN%2C%2059611-440" target="_blank" rel="noopener noreferrer">
-          R. Julita G. Sena, 241 - Nova Betânia, Mossoró - RN, 59611-440
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 3315-3536</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <h1 class="title">Delegacia Especializada de Atendimento à Mulher em Caicó </h1>
-      
-      <div class="info-row">
-        <a class="label" href="https://www.google.com/maps/search/?api=1&query=Rua%20Dom%20Adelino%20Dantas%2C%20Cidade%20Judici%C3%A1ria%2C%20Maynard%2C%20Caic%C3%B3%2FRN%2C%20CEP.%3A%2059.300%2C%2000000" target="_blank" rel="noopener noreferrer">
-          Rua Dom Adelino Dantas, Cidade Judiciária, Maynard, Caicó/RN, CEP.: 59.300, 00000
-        </a>
-      </div>
-      <div class="info-row">
-        <span class="label">Telefone: (84) 98164-9513</span>
-      </div>
-    </div>
+      <app-delegacy-card *ngFor="let delegacy of interiorDelegacies" [delegacy]="delegacy"></app-delegacy-card>
   </div>
 </div>
 </main>

@@ -1,19 +1,27 @@
-import { Component, Injectable, inject } from '@angular/core'
-import { CadastroService, type Profissional, type Ong } from '../services/cadastro.service'
-import { ValidadorCnpjService } from '../services/validador-cnpj.service'
-import { CommonModule } from '@angular/common'
-import { FormsModule } from '@angular/forms'
-import { HeaderComponent } from '../components/header/header.component'
+import { Component, Injectable, inject } from '@angular/core';
+import {
+  CadastroService,
+  type Profissional,
+  type Ong,
+} from '../services/cadastro.service';
+import { ValidadorCnpjService } from '../services/validador-cnpj.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../components/header/header.component';
+import {
+  createDefaultProfissional,
+  createDefaultOng,
+} from '../shared/model-factories';
 
 @Injectable({
   providedIn: 'root',
 })
 @Component({
-    selector: 'app-cadastro',
+  selector: 'app-cadastro',
   standalone: true,
-    imports: [FormsModule, HeaderComponent, CommonModule],
-    templateUrl: './cadastro.component.html',
-    styleUrls: ['./cadastro.component.css']
+  imports: [FormsModule, HeaderComponent, CommonModule],
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent {
   private cadastroService = inject(CadastroService);
@@ -21,157 +29,143 @@ export class CadastroComponent {
 
   tipoCadastro: 'profissional' | 'ong' = 'profissional';
 
-  profissional: Profissional = {
-    nome_completo: '',
-    cpf: '',
-    conselho: '',
-    contato: '',
-    user: {
-      password: '',
-      username: '',
-      email: '',
-      perfil: 'pro',
-    },
-    bio: '',
-  }
+  profissional: Profissional = createDefaultProfissional();
 
-  ong: Ong = {
-    razao_social: '',
-    cnpj: '',
-    contato: '',
-    user: {
-      password: '',
-      username: '',
-      email: '',
-      perfil: 'ong',
-    },
-    bio: '',
-  }
+  ong: Ong = createDefaultOng();
 
   senhaRepetida = '';
   mensagem: string | null = null;
 
   updateLogin(value: string) {
     if (this.tipoCadastro === 'profissional') {
-      this.profissional.user.username = value
+      this.profissional.user.username = value;
     } else {
-      this.ong.user.username = value
+      this.ong.user.username = value;
     }
   }
 
   updateSenha(value: string) {
     if (this.tipoCadastro === 'profissional') {
-      this.profissional.user.password = value
+      this.profissional.user.password = value;
     } else {
-      this.ong.user.password = value
+      this.ong.user.password = value;
     }
   }
 
   updateContato(value: string) {
     if (this.tipoCadastro === 'profissional') {
-      this.profissional.contato = value
+      this.profissional.contato = value;
     } else {
-      this.ong.contato = value
+      this.ong.contato = value;
     }
   }
 
   updateEmail(value: string) {
     if (this.tipoCadastro === 'profissional') {
-      this.profissional.user.email = value
+      this.profissional.user.email = value;
     } else {
-      this.ong.user.email = value
+      this.ong.user.email = value;
     }
   }
 
   updateBio(value: string) {
     if (this.tipoCadastro === 'profissional') {
-      this.profissional.bio = value
+      this.profissional.bio = value;
     } else {
-      this.ong.bio = value
+      this.ong.bio = value;
     }
   }
 
   senhaValida(): boolean {
-    const senha = this.tipoCadastro === 'profissional' ? this.profissional.user.password : this.ong.user.password
-    return senha.length >= 8 && /\d/.test(senha) && /[A-Za-z]/.test(senha)
+    const senha =
+      this.tipoCadastro === 'profissional'
+        ? this.profissional.user.password
+        : this.ong.user.password;
+    return senha.length >= 8 && /\d/.test(senha) && /[A-Za-z]/.test(senha);
   }
 
   senhasIguais(): boolean {
-    const senha = this.tipoCadastro === 'profissional' ? this.profissional.user.password : this.ong.user.password
-    return senha === this.senhaRepetida
+    const senha =
+      this.tipoCadastro === 'profissional'
+        ? this.profissional.user.password
+        : this.ong.user.password;
+    return senha === this.senhaRepetida;
   }
 
   onSubmit() {
     if (!this.senhaValida()) {
-      alert('A senha deve ter no mínimo 8 caracteres, incluindo letras e números.')
-      return
+      alert(
+        'A senha deve ter no mínimo 8 caracteres, incluindo letras e números.',
+      );
+      return;
     }
 
     if (!this.senhasIguais()) {
-      alert('As senhas não coincidem. Verifique os campos de senha.')
-      return
+      alert('As senhas não coincidem. Verifique os campos de senha.');
+      return;
     }
 
     if (this.tipoCadastro === 'profissional') {
-      this.cadastrarProfissional()
+      this.cadastrarProfissional();
     } else {
-      this.validarECadastrarOng()
+      this.validarECadastrarOng();
     }
   }
 
   cadastrarProfissional() {
     this.cadastroService.registerProfissional(this.profissional).subscribe({
       next: (response) => {
-        console.log('Profissional cadastrado:', response)
-        this.mensagem = 'Cadastro de profissional realizado com sucesso!'
-        this.voltarParaIndex()
-        this.exibirMensagemTemporaria()
+        console.log('Profissional cadastrado:', response);
+        this.mensagem = 'Cadastro de profissional realizado com sucesso!';
+        this.voltarParaIndex();
+        this.exibirMensagemTemporaria();
       },
       error: (_error) => {
-        this.mensagem = 'Erro ao cadastrar profissional.'
-        this.exibirMensagemTemporaria()
+        this.mensagem = 'Erro ao cadastrar profissional.';
+        this.exibirMensagemTemporaria();
       },
-    })
+    });
   }
 
   validarECadastrarOng() {
     this.validadorCnpjService.validarCnpj(this.ong.cnpj).subscribe({
       next: (cnpjValido) => {
         if (cnpjValido) {
-          this.cadastrarOng()
+          this.cadastrarOng();
         } else {
-          this.mensagem = 'CNPJ inválido. Por favor, verifique o número informado.'
-          this.exibirMensagemTemporaria()
+          this.mensagem =
+            'CNPJ inválido. Por favor, verifique o número informado.';
+          this.exibirMensagemTemporaria();
         }
       },
       error: (_error) => {
-        this.mensagem = 'Erro ao validar CNPJ. Por favor, tente novamente mais tarde.'
-        this.exibirMensagemTemporaria()
+        this.mensagem =
+          'Erro ao validar CNPJ. Por favor, tente novamente mais tarde.';
+        this.exibirMensagemTemporaria();
       },
-    })
+    });
   }
 
   cadastrarOng() {
     this.cadastroService.registerOng(this.ong).subscribe({
       next: (response) => {
-        console.log('ONG cadastrada:', response)
-        this.mensagem = 'Cadastro de ONG realizado com sucesso!'
-        this.voltarParaIndex()
-        this.exibirMensagemTemporaria()
+        console.log('ONG cadastrada:', response);
+        this.mensagem = 'Cadastro de ONG realizado com sucesso!';
+        this.voltarParaIndex();
+        this.exibirMensagemTemporaria();
       },
       error: (_error) => {
-        this.mensagem = 'Erro ao cadastrar ONG.'
-        this.exibirMensagemTemporaria()
+        this.mensagem = 'Erro ao cadastrar ONG.';
+        this.exibirMensagemTemporaria();
       },
-    })
+    });
   }
 
   exibirMensagemTemporaria() {
-    setTimeout(() => (this.mensagem = null), 5000)
+    setTimeout(() => (this.mensagem = null), 5000);
   }
 
   voltarParaIndex() {
-    window.location.href = '/index'
+    window.location.href = '/index';
   }
 }
-

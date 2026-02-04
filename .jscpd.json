@@ -1,0 +1,30 @@
+{
+  "threshold": 0,
+  "minTokens": 20,
+  "minLines": 5,
+  "exitCode": 1,
+  "reporters": [
+    "html",
+    "json",
+    "csv"
+  ],
+  "output": ".jscpd-report",
+  "projectRoot": ".",
+  "verbose": true,
+  "relative": true,
+  "gitignore": true,
+  "ignore": [
+    "node_modules/**",
+    ".git/**",
+    ".jscpd-report/**",
+    "dist/**",
+    "build/**",
+    "coverage/**",
+    ".angular/**"
+  ],
+  "languages": [
+    "typescript",
+    "javascript",
+    "python"
+  ]
+}

@@ -1,0 +1,42 @@
+/* Shared styles for card components */
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(287px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1515px;
+  margin-top: 20px;
+}
+
+.info-row {
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  color: #0066cc;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+.label:hover {
+  text-decoration: underline;
+}

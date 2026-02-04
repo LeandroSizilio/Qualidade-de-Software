@@ -80,6 +80,7 @@ button:active {
 }
 
 .grid-relatos {
+    /* Grid layout is defined in shared-components.css as .grid */
     display: grid;
     grid-template-columns: repeat(auto-fit, 287px);
     gap: 20px;
@@ -102,6 +103,7 @@ button:active {
     font-size: 33.18px;
     margin-top: 10px;
     color: #FF6E6E;
+    /* Base .title styles from shared-components.css */
 }
 
 .filter-container {

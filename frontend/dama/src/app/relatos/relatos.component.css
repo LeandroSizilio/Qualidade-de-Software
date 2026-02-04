@@ -53,8 +53,6 @@ header {
 }
 
 /* Button styles imported from consolidated-buttons.css */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 .grid-relatos {
   /* Grid layout is defined in shared-components.css as .grid */

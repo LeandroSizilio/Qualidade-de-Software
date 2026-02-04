@@ -3,7 +3,7 @@
  * across components
  */
 
-import { Profissional, Ong } from './cadastro.service';
+import { Profissional, Ong } from '../services/cadastro.service';
 
 /**
  * Factory function to create a default Profissional object

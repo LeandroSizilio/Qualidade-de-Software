@@ -92,6 +92,12 @@ export class CadastroComponent {
     return senha === this.senhaRepetida;
   }
 
+  mostrarSucessoEVoltar(mensagem: string) {
+    this.mensagem = mensagem;
+    this.voltarParaIndex();
+    this.exibirMensagemTemporaria();
+  }
+
   onSubmit() {
     if (!this.senhaValida()) {
       alert(
@@ -116,9 +122,9 @@ export class CadastroComponent {
     this.cadastroService.registerProfissional(this.profissional).subscribe({
       next: (response) => {
         console.log('Profissional cadastrado:', response);
-        this.mensagem = 'Cadastro de profissional realizado com sucesso!';
-        this.voltarParaIndex();
-        this.exibirMensagemTemporaria();
+        this.mostrarSucessoEVoltar(
+          'Cadastro de profissional realizado com sucesso!',
+        );
       },
       error: (_error) => {
         this.mensagem = 'Erro ao cadastrar profissional.';
@@ -150,9 +156,7 @@ export class CadastroComponent {
     this.cadastroService.registerOng(this.ong).subscribe({
       next: (response) => {
         console.log('ONG cadastrada:', response);
-        this.mensagem = 'Cadastro de ONG realizado com sucesso!';
-        this.voltarParaIndex();
-        this.exibirMensagemTemporaria();
+        this.mostrarSucessoEVoltar('Cadastro de ONG realizado com sucesso!');
       },
       error: (_error) => {
         this.mensagem = 'Erro ao cadastrar ONG.';

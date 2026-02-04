@@ -1,0 +1,63 @@
+/* Consolidated Button Styles */
+
+button {
+  background-color: rgba(255, 90, 90, 0.8);
+  border: none;
+  padding: 1em 2em;
+  height: 35px;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: rgba(255, 100, 100, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background-color: rgba(255, 100, 110, 0.2);
+  opacity: 0.8;
+}
+
+button:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+  color: #a0a0a0;
+  box-shadow: none;
+}
+
+button.cancelar {
+  background-color: #ccc;
+  color: #333;
+}
+
+button.cancelar:hover {
+  background-color: #bbb;
+}
+
+.btn-primary {
+  background-color: rgba(255, 90, 90, 1);
+}
+
+.btn-primary:hover {
+  background-color: rgba(255, 100, 100, 1);
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+}
